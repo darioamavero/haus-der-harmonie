@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -15,78 +14,82 @@
             background-attachment: fixed;
             color: white;
         }
-
-        .overlay {
-            background-color: rgba(0, 0, 0, 0.65);
+        header {
+            background-color: rgba(0, 0, 0, 0.2);
             padding: 2rem;
-            margin: 0 auto;
-            width: 80%;
             text-align: center;
-            border-radius: 12px;
-            margin-top: 3vh;
+            font-size: 2rem;
         }
-
-        .avatar {
-            width: 220px;
-            margin: 30px auto 10px auto;
-            display: block;
-            animation: fadeIn 2.5s ease-in-out;
+        .content {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin: 1rem auto;
+            width: 80%;
+            border-radius: 10px;
         }
-
-        .text-box {
-            font-size: 1.3rem;
-            margin-top: 1.2rem;
-            line-height: 1.7;
-        }
-
-        .portale {
+        .portal-buttons {
             position: absolute;
-            top: 50%;
-            left: 4%;
-            transform: translateY(-50%);
+            top: 2rem;
+            left: 2rem;
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 0.8rem;
         }
-
-        .portale button {
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 10px;
-            background-color: rgba(0,0,0,0.6);
+        .portal-buttons button {
+            background-color: rgba(0, 0, 0, 0.4);
             color: white;
+            border: 1px solid white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
         }
-
-        .portale button:hover {
+        .portal-buttons button:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+        #harmonius {
+            width: 220px;
+            margin: 2rem auto;
+            display: block;
+            opacity: 0;
+            transform: scale(0.7);
+            transition: opacity 2s ease, transform 2s ease;
+        }
+        #harmonius.visible {
+            opacity: 1;
+            transform: scale(1);
         }
     </style>
 </head>
 <body>
-    <div class="overlay">
-        <img src="harmonius.png" alt="Harmonius Einstein" class="avatar">
-        <div class="text-box">
-            <p><strong>Willkommen im Herzen des Hauses der Harmonie.</strong><br>
-            Von hier gelangst du zu den fünf Flügeln:<br>
-            dem Flügel des Wissens, der Liebe, der Gemeinschaft,<br>
-            der Geschichte – und der Transformation.</p>
-        </div>
+    <div class="portal-buttons">
+        <button onclick="window.location.href='wissen.html'">Flügel des Wissens</button>
+        <button onclick="window.location.href='liebe.html'">Flügel der Liebe</button>
+        <button onclick="window.location.href='gemeinschaft.html'">Flügel der Gemeinschaft</button>
+        <button onclick="window.location.href='geschichten.html'">Flügel der Geschichte</button>
+        <button onclick="window.location.href='transformation.html'">Flügel der Transformation</button>
     </div>
 
-    <div class="portale">
-        <button onclick="location.href='wissen.html'">Flügel des Wissens</button>
-        <button onclick="location.href='liebe.html'">Flügel der Liebe</button>
-        <button onclick="location.href='gemeinschaft.html'">Flügel der Gemeinschaft</button>
-        <button onclick="location.href='geschichten.html'">Flügel der Geschichte</button>
-        <button onclick="location.href='transformation.html'">Flügel der Transformation</button>
-    </div>
+    <img src="harmonius.png" id="harmonius" alt="Harmonius Einstein">
+
+    <header>
+        Willkommen im Herzen des Hauses der Harmonie.<br>
+        Von hier gelangst du zu den fünf Flügeln:<br>
+        dem Flügel des Wissens, der Liebe, der Gemeinschaft,<br>
+        der Geschichte – und der Transformation.
+    </header>
+
+    <audio id="welcomeAudio" src="harmonius.mp3"></audio>
+
+    <script>
+        window.addEventListener('load', () => {
+            const img = document.getElementById('harmonius');
+            img.classList.add('visible');
+            const audio = document.getElementById('welcomeAudio');
+            audio.play();
+        });
+    </script>
 </body>
 </html>
