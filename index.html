@@ -3,7 +3,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Haus der Harmonie | Zentralhalle</title>
+    <title>Zentralhalle des Hauses der Harmonie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -23,11 +23,32 @@
         }
         .content {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 2rem;
             background-color: rgba(0, 0, 0, 0.5);
             margin: 5vh auto;
             width: 60%;
             border-radius: 15px;
+        }
+        .portals {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .portal {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            margin: 1rem;
+            border: 2px solid white;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .portal:hover {
+            background-color: white;
+            color: black;
         }
     </style>
 </head>
@@ -35,7 +56,13 @@
     <header>Zentralhalle des Hauses der Harmonie</header>
     <div class="content">
         <p>Willkommen im Herzen des Hauses der Harmonie. Von hier gelangst du zu den fünf Flügeln.</p>
-        <p><em>(Portale folgen im nächsten Schritt...)</em></p>
+        <div class="portals">
+            <a href="wissen.html" class="portal">Flügel des Wissens</a>
+            <a href="liebe.html" class="portal">Flügel der Liebe</a>
+            <a href="gemeinschaft.html" class="portal">Flügel der Gemeinschaft</a>
+            <a href="geschichten.html" class="portal">Flügel der Geschichten</a>
+            <a href="transformation.html" class="portal">Flügel der Transformation</a>
+        </div>
     </div>
 </body>
 </html>
