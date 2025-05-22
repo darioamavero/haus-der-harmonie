@@ -1,62 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haus der Harmonie</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haus der Harmonie | Zentralhalle</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-image: url('Zentralhalle.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center bottom;
             background-attachment: fixed;
-            color: white;
         }
 
         .overlay {
             background-color: rgba(0, 0, 0, 0.3);
+            color: white;
             padding: 1.5rem;
             border-radius: 10px;
-            max-width: 90%;
-            margin: 2vh auto 1vh auto;
+            max-width: 600px;
+            margin: 2rem auto 1rem;
             text-align: center;
         }
 
         .portal-buttons {
             position: absolute;
-            top: 2vh;
-            left: 2vw;
+            top: 2rem;
+            left: 2rem;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 0.8rem;
         }
 
         .portal-buttons button {
             background-color: rgba(0, 0, 0, 0.3);
-            border: none;
             color: white;
-            padding: 8px 14px;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 0.4rem 0.8rem;
             font-size: 0.9rem;
-            border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
 
         .portal-buttons button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         #harmonius {
             display: block;
-            margin: 5vh auto 0 auto;
+            margin: 0 auto;
+            margin-top: 2rem;
             width: 300px;
-            max-width: 40vw;
             opacity: 0;
-            transform: scale(0.5);
-            transition: transform 2s ease, opacity 2s ease;
+            transform: scale(0.8);
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
         }
 
         #harmonius.visible {
@@ -65,23 +63,24 @@
         }
 
         @media (max-width: 768px) {
-            .portal-buttons {
-                top: 1vh;
-                left: 1vw;
-            }
-
-            .portal-buttons button {
-                padding: 6px 10px;
-                font-size: 0.8rem;
-            }
-
             #harmonius {
-                width: 200px;
+                width: 180px;
             }
 
             .overlay {
                 font-size: 0.9rem;
                 padding: 1rem;
+                margin: 1.5rem 1rem;
+            }
+
+            .portal-buttons {
+                top: 1rem;
+                left: 1rem;
+            }
+
+            .portal-buttons button {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
             }
         }
     </style>
