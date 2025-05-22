@@ -2,63 +2,83 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flügel der Geschichte</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Georgia', serif;
-            background-image: url('FlügelderGeschichte.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #f2e7c9;
-        }
-        .overlay {
-            background-color: rgba(0, 0, 0, 0.5);
-            margin: 2rem;
-            padding: 2rem;
-            border-radius: 12px;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #ffe;
-        }
-        h2 {
-            color: #ffd700;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 0.3rem;
-            margin-top: 2rem;
-        }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        a.back-button {
-            display: inline-block;
-            margin: 2rem;
-            padding: 0.5rem 1rem;
-            background-color: rgba(255, 215, 0, 0.8);
-            color: #000;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flügel der Geschichte</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('FlügelderGeschichte.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .back-button {
+      display: block;
+      margin: 1rem;
+      background-color: rgba(255, 215, 0, 0.8);
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+    }
+
+    .section {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      width: 80%;
+      margin: 2rem auto;
+      border-radius: 10px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.5rem;
+      }
+
+      .section {
+        width: 95%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">← Zurück zur Zentralhalle</a>
-    <div class="overlay">
-        <h1>Flügel der Geschichte</h1>
-        <h2>Bibliothek der Zeit</h2>
-        <p>Ein Ort, an dem die Schriften der Menschheit gesammelt sind – von Keilschriften und Hieroglyphen bis zu den verborgenen Chroniken zukünftiger Visionen.</p>
+  <a class="back-button" href="index.html">← Zurück zur Zentralhalle</a>
+  <header>Flügel der Geschichte</header>
 
-        <h2>Chronik der Stimmen</h2>
-        <p>Hier findest du persönliche Geschichten von Menschen aus allen Epochen, die ihre Weisheit, Warnungen und Hoffnungen hinterlassen haben.</p>
+  <div class="section">
+    <h2>Bibliothek der Zeit</h2>
+    <p>Ein Ort, an dem die Schriften der Menschheit gesammelt sind – von Keilschriften und Hieroglyphen bis zu den verborgenen Chroniken zukünftiger Visionen.</p>
+  </div>
 
-        <h2>Pfad der Erinnerung</h2>
-        <p>Ein interaktiver Pfad durch die entscheidenden Wendepunkte der Weltgeschichte, in dem alternative Verläufe sichtbar und erfahrbar werden.</p>
-    </div>
+  <div class="section">
+    <h2>Chronik der Stimmen</h2>
+    <p>Hier findest du persönliche Geschichten von Menschen aus allen Epochen, die ihre Weisheit, Warnungen und Hoffnungen hinterlassen haben.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pfad der Erinnerung</h2>
+    <p>Ein interaktiver Pfad durch die entscheidenden Wendepunkte der Weltgeschichte, in dem alternative Verläufe sichtbar und erfahrbar werden.</p>
+  </div>
 </body>
 </html>
