@@ -6,95 +6,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flügel der Transformation</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #000;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url("FlügelderTransformation.jpg") no-repeat center center fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('FlügelderTransformation.jpg');
       background-size: cover;
-      filter: brightness(0.9);
-      z-index: -1;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
     }
 
-    .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1);
+    header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
       text-align: center;
-      color: white;
-      padding: 2rem;
-      animation: zoomIn 4s ease forwards;
+      font-size: 2rem;
+      font-weight: bold;
     }
 
-    @keyframes zoomIn {
-      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    .back-button {
+      display: block;
+      margin: 1rem;
+      background-color: rgba(255, 215, 0, 0.8);
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, #bb86fc, #80d0c7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .section {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      width: 80%;
+      margin: 2rem auto;
+      border-radius: 10px;
     }
 
-    .button-container {
-      margin-top: 3rem;
+    .section h2 {
+      margin-top: 0;
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
       align-items: center;
+      font-size: 1.5rem;
     }
 
-    .portal-button {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      padding: 0.8rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 90%;
-      max-width: 300px;
-      backdrop-filter: blur(6px);
-    }
-
-    .portal-button:hover {
-      background-color: rgba(255, 255, 255, 0.25);
+    .section span {
+      margin-right: 0.6rem;
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
+      header {
+        font-size: 1.5rem;
       }
 
-      .portal-button {
-        font-size: 1rem;
+      .section {
+        width: 95%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1>Willkommen im Flügel der Transformation</h1>
-    <div class="button-container">
-      <button class="portal-button">Metamorphose des Selbst</button>
-      <button class="portal-button">Zukünfte denken</button>
-      <button class="portal-button">Technologie & Seele</button>
-    </div>
+  <a class="back-button" href="index.html">🔙 Zurück zur Zentralhalle</a>
+  <header>Flügel der Transformation</header>
+
+  <div class="section">
+    <h2><span>🦋</span>Metamorphose des Selbst</h2>
+    <p>Hier beginnt die Reise nach innen: persönliche Wandlungsprozesse, Reflexion und innere Heilung.</p>
+  </div>
+
+  <div class="section">
+    <h2><span>🌌</span>Zukünfte denken</h2>
+    <p>In dieser Sektion entwirfst du mögliche Zukünfte – für dich selbst, für die Gesellschaft und für den Planeten.</p>
+  </div>
+
+  <div class="section">
+    <h2><span>🤖</span>Technologie & Seele</h2>
+    <p>Wie kann Technologie spirituell, ethisch und menschlich werden? Hier verbinden sich Wissenschaft und Weisheit.</p>
   </div>
 </body>
 </html>
