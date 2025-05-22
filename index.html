@@ -3,106 +3,96 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Zentralhalle des Hauses der Harmonie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haus der Harmonie</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
             background-image: url('Zentralhalle.jpg');
             background-size: cover;
-            background-position: center bottom;
-            background-attachment: fixed;
-            color: white;
+            background-position: center;
+            font-family: Arial, sans-serif;
         }
 
-        .portal-buttons {
+        .overlay-text {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .harmonius {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px; /* doppelte Größe */
+            max-width: 90%;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 10%;
+            left: 2%;
             display: flex;
             flex-direction: column;
             gap: 10px;
-            z-index: 2;
         }
 
-        .portal-buttons button {
-            background-color: rgba(0, 0, 0, 0.3);
-            border: 1px solid white;
-            color: white;
-            padding: 10px 14px;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .portal-buttons button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .overlay {
-            position: absolute;
-            top: 80px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 20px;
+        .buttons a {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #000;
+            text-decoration: none;
+            padding: 6px 10px;
             border-radius: 8px;
-            max-width: 60%;
-            text-align: right;
-            z-index: 2;
+            font-size: 0.9em;
+            text-align: left;
+            width: 160px;
         }
 
-        #harmonius {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 220px;
-            opacity: 0;
-            transition: opacity 2s ease-in;
-            z-index: 1;
-        }
+        @media screen and (max-width: 768px) {
+            .overlay-text {
+                font-size: 1em;
+                top: 2%;
+            }
 
-        #harmonius.visible {
-            opacity: 1;
-        }
+            .harmonius {
+                width: 200px;
+            }
 
-        audio {
-            display: none;
+            .buttons a {
+                font-size: 0.8em;
+                width: 140px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="portal-buttons">
-        <button onclick="window.location.href='wissen.html'">Flügel des Wissens</button>
-        <button onclick="window.location.href='liebe.html'">Flügel der Liebe</button>
-        <button onclick="window.location.href='gemeinschaft.html'">Flügel der Gemeinschaft</button>
-        <button onclick="window.location.href='geschichten.html'">Flügel der Geschichte</button>
-        <button onclick="window.location.href='transformation.html'">Flügel der Transformation</button>
+    <div class="overlay-text">
+        Willkommen im Haus der Harmonie<br>
+        Klicke auf Harmonius, um eine Einführung zu erhalten
     </div>
-
-    <div class="overlay">
-        <h1>Willkommen im Haus der Harmonie</h1>
-        <p>Klicke auf Harmonius, um eine Einführung zu erhalten.</p>
+    <img class="harmonius" src="harmonius.png" alt="Harmonius" onclick="playAudio()">
+    <div class="buttons">
+        <a href="wissen.html">Flügel des Wissens</a>
+        <a href="liebe.html">Flügel der Liebe</a>
+        <a href="#">Flügel der Gemeinschaft</a>
+        <a href="#">Flügel der Geschichte</a>
+        <a href="#">Flügel der Transformation</a>
     </div>
-
-    <img src="harmonius.png" id="harmonius" alt="Harmonius Einstein" onclick="playIntro()">
-
-    <audio id="welcomeAudio" src="harmonius.mp3"></audio>
-
+    <audio id="audio" src="harmonius.mp3"></audio>
     <script>
-        function playIntro() {
-            const audio = document.getElementById('welcomeAudio');
-            audio.play();
+        function playAudio() {
+            document.getElementById('audio').play();
         }
-
-        window.addEventListener('load', () => {
-            const img = document.getElementById('harmonius');
-            setTimeout(() => {
-                img.classList.add('visible');
-            }, 500);
-        });
     </script>
 </body>
 </html>
