@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -13,53 +14,60 @@
             background-position: center;
             background-attachment: fixed;
             color: white;
-        }
-        header {
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 2rem;
             text-align: center;
-            font-size: 2rem;
         }
-        .content {
-            text-align: center;
-            padding: 1rem;
-            background-color: rgba(0, 0, 0, 0.2);
-            margin: 1rem auto;
-            width: 80%;
-            border-radius: 10px;
-        }
+
         .portal-buttons {
             position: absolute;
-            top: 2rem;
-            left: 2rem;
+            top: 20px;
+            left: 20px;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.5rem;
         }
+
         .portal-buttons button {
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.3);
             color: white;
-            border: 1px solid white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
+            border: 2px solid white;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
             cursor: pointer;
+            transition: background-color 0.3s;
             font-size: 1rem;
-            transition: background-color 0.3s ease;
         }
+
         .portal-buttons button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
         }
+
         #harmonius {
             width: 220px;
-            margin: 2rem auto;
-            display: block;
+            margin-top: 50px;
+            cursor: pointer;
+            transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+            transform: scale(0.1);
             opacity: 0;
-            transform: scale(0.7);
-            transition: opacity 2s ease, transform 2s ease;
         }
+
         #harmonius.visible {
-            opacity: 1;
             transform: scale(1);
+            opacity: 1;
+        }
+
+        header {
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        #hint {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -72,7 +80,8 @@
         <button onclick="window.location.href='transformation.html'">Flügel der Transformation</button>
     </div>
 
-    <img src="harmonius.png" id="harmonius" alt="Harmonius Einstein">
+    <img src="harmonius.png" id="harmonius" alt="Harmonius Einstein" onclick="playWelcomeAudio()">
+    <div id="hint">(Klicke auf Harmonius, um ihn sprechen zu hören)</div>
 
     <header>
         Willkommen im Herzen des Hauses der Harmonie.<br>
@@ -84,11 +93,14 @@
     <audio id="welcomeAudio" src="harmonius.mp3"></audio>
 
     <script>
+        function playWelcomeAudio() {
+            const audio = document.getElementById('welcomeAudio');
+            audio.play();
+        }
+
         window.addEventListener('load', () => {
             const img = document.getElementById('harmonius');
             img.classList.add('visible');
-            const audio = document.getElementById('welcomeAudio');
-            audio.play();
         });
     </script>
 </body>
