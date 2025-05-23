@@ -36,12 +36,30 @@
       width: fit-content;
     }
 
-    .section {
+    .intro {
       background-color: rgba(0, 0, 0, 0.3);
       padding: 1.5rem;
       width: 80%;
-      margin: 2rem auto;
+      margin: 2rem auto 1rem auto;
       border-radius: 10px;
+      text-align: center;
+    }
+
+    .area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .section {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 100%;
     }
 
     .section h2 {
@@ -49,6 +67,7 @@
       font-size: 1.5rem;
       font-weight: bold;
       color: #FFD700;
+      text-align: center;
     }
 
     .portal-button {
@@ -64,7 +83,7 @@
       max-width: 300px;
       backdrop-filter: blur(6px);
       display: block;
-      margin: 2rem auto;
+      margin: 1rem auto;
       text-align: center;
       text-decoration: none;
     }
@@ -86,7 +105,7 @@
         font-size: 1.5rem;
       }
 
-      .section {
+      .intro, .section {
         width: 95%;
       }
 
@@ -100,22 +119,22 @@
   <a class="back-button" href="index.html">← Zurück zur Zentralhalle</a>
   <header>Flügel der Liebe</header>
 
-  <div class="section">
-    <h2>Raum des Mitgefühls</h2>
-    <p>Hier findest du Geschichten, Gedanken und Übungen, die dein Herz öffnen und dir helfen, die Gefühle anderer zu spüren.</p>
+  <div class="intro">
+    <p>Dieser Flügel lädt dich ein, Mitgefühl zu üben, echte Verbindung zu erleben und dich im Anderen zu erkennen.</p>
   </div>
 
-  <div class="section">
-    <h2>Kreis der Verbindung</h2>
-    <p>Entdecke, wie tief echte Verbindung sein kann – durch ehrliches Zuhören, gemeinsames Schweigen oder geteilte Hoffnung.</p>
-  </div>
+  <div class="area">
+    <div class="section">
+      <h2>🪞 Empathie-Spiegel</h2>
+      <p>Übe dich im Perspektivwechsel und entdecke, wie dein Denken und Fühlen aus Sicht eines Anderen erlebt wird.</p>
+      <a class="portal-button" href="spiegel.html">Zum Empathie-Spiegel</a>
+    </div>
 
-  <a class="portal-button" href="spiegel.html">🪞 Zum Empathie-Spiegel</a>
-
-  <div class="section">
-    <h2>Verbindungsraum</h2>
-    <p>Hier kannst du mit anderen Besucher:innen sprechen, Gedanken teilen und echte Verbindung erleben.</p>
-    <iframe src="https://tlk.io/hausderharmonie"></iframe>
+    <div class="section">
+      <h2>💬 Verbindungsraum</h2>
+      <p>Hier kannst du mit anderen Besucher:innen sprechen, Gedanken teilen und echte Verbindung erleben.</p>
+      <iframe src="https://tlk.io/hausderharmonie"></iframe>
+    </div>
   </div>
 </body>
 </html>
