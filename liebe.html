@@ -2,66 +2,106 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Flügel der Liebe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('FlügelderLiebe.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flügel der Liebe</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('FlügelderLiebe.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
 
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: rgba(255, 192, 203, 0.3);
-            color: white;
-            border: 2px solid #ffc0cb;
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-        }
+    header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
 
-        .content {
-            margin-top: 45vh;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.35);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 12px;
-        }
+    .back-button {
+      display: block;
+      margin: 1rem;
+      background-color: rgba(255, 215, 0, 0.8);
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+    }
 
-        h2 {
-            color: #ffb6c1;
-            border-bottom: 1px solid #ffb6c1;
-            padding-bottom: 0.3rem;
-        }
+    .section {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      width: 80%;
+      margin: 2rem auto;
+      border-radius: 10px;
+    }
 
-        p {
-            color: #f0f0f0;
-        }
-    </style>
+    .section h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    .portal-button {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 90%;
+      max-width: 300px;
+      backdrop-filter: blur(6px);
+      display: block;
+      margin: 2rem auto;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .portal-button:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.5rem;
+      }
+
+      .section {
+        width: 95%;
+      }
+
+      .portal-button {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">← Zurück zur Zentralhalle</a>
+  <a class="back-button" href="index.html">← Zurück zur Zentralhalle</a>
+  <header>Flügel der Liebe</header>
 
-    <div class="content">
-        <h2>Tempel der Empathie</h2>
-        <p>Ein Ort, an dem Mitgefühl, Zuhören und emotionale Intelligenz gelehrt und geteilt werden.</p>
+  <div class="section">
+    <h2>Raum des Mitgefühls</h2>
+    <p>Hier findest du Geschichten, Gedanken und Übungen, die dein Herz öffnen und dir helfen, die Gefühle anderer zu spüren.</p>
+  </div>
 
-        <h2>Pfad der Verbindung</h2>
-        <p>Ein interaktiver Raum, in dem Besucher ihre Geschichten teilen, sich begegnen und auf neue Weise verbunden fühlen.</p>
+  <div class="section">
+    <h2>Kreis der Verbindung</h2>
+    <p>Entdecke, wie tief echte Verbindung sein kann – durch ehrliches Zuhören, gemeinsames Schweigen oder geteilte Hoffnung.</p>
+  </div>
 
-        <h2>Herzenskammer</h2>
-        <p>Ein Rückzugsort der inneren Ruhe, wo Meditation, Dankbarkeit und Herzensbildung im Mittelpunkt stehen.</p>
-    </div>
+  <a class="portal-button" href="spiegel.html">🪞 Zum Empathie-Spiegel</a>
 </body>
 </html>
