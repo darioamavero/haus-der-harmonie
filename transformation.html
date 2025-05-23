@@ -8,7 +8,7 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-image: url('FlügelderTransformation.jpg');
       background-size: cover;
       background-position: center;
@@ -46,20 +46,40 @@
 
     .section h2 {
       margin-top: 0;
-      display: flex;
-      align-items: center;
       font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
     }
 
-    .section span {
-      margin-right: 0.6rem;
+    .compass-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .compass-tile {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .compass-tile:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    #output {
+      margin-top: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
     }
 
     @media (max-width: 600px) {
-      header {
-        font-size: 1.5rem;
-      }
-
       .section {
         width: 95%;
       }
@@ -67,22 +87,50 @@
   </style>
 </head>
 <body>
-  <a class="back-button" href="index.html">🔙 Zurück zur Zentralhalle</a>
+  <a class="back-button" href="index.html">← Zurück zur Zentralhalle</a>
   <header>Flügel der Transformation</header>
 
   <div class="section">
-    <h2><span>🦋</span>Metamorphose des Selbst</h2>
-    <p>Hier beginnt die Reise nach innen: persönliche Wandlungsprozesse, Reflexion und innere Heilung.</p>
+    <h2>🧭 Bewusstseinskompass</h2>
+    <p>Wähle eine Richtung deiner inneren Entwicklung:</p>
+    <div class="compass-grid">
+      <div class="compass-tile" onclick="show('ich')">🧍 Ich</div>
+      <div class="compass-tile" onclick="show('du')">🫂 Du</div>
+      <div class="compass-tile" onclick="show('wir')">🤝 Wir</div>
+      <div class="compass-tile" onclick="show('alle')">🌍 Alle</div>
+    </div>
+    <div id="output"></div>
   </div>
 
   <div class="section">
-    <h2><span>🌌</span>Zukünfte denken</h2>
+    <h2>🔮 Zukünfte denken</h2>
     <p>In dieser Sektion entwirfst du mögliche Zukünfte – für dich selbst, für die Gesellschaft und für den Planeten.</p>
   </div>
 
   <div class="section">
-    <h2><span>🤖</span>Technologie & Seele</h2>
+    <h2>🤖 Technologie & Seele</h2>
     <p>Wie kann Technologie spirituell, ethisch und menschlich werden? Hier verbinden sich Wissenschaft und Weisheit.</p>
   </div>
+
+  <script>
+    function show(direction) {
+      let text = "";
+      switch(direction) {
+        case "ich":
+          text = "Reflektiere deine Bedürfnisse, Ängste und Werte. Wer bist du – losgelöst von allen Rollen?";
+          break;
+        case "du":
+          text = "Sieh die Welt durch die Augen des Anderen. Empathie ist die Brücke zwischen Herzen.";
+          break;
+        case "wir":
+          text = "Was kannst du beitragen? Gemeinschaft entsteht dort, wo Verantwortung geteilt wird.";
+          break;
+        case "alle":
+          text = "Du bist Teil des Ganzen. Dein Bewusstsein ist verbunden mit allem Leben.";
+          break;
+      }
+      document.getElementById("output").innerText = text;
+    }
+  </script>
 </body>
 </html>
