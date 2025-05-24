@@ -5,20 +5,23 @@
     <meta charset="UTF-8">
     <title>Haus der Harmonie – Zentralhalle</title>
     <style>
-   body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  background-image: url('Zentralhalle.jpg');
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
-  background-color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
-}
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            min-height: -webkit-fill-available;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
 
+        body {
+            background-image: url('Zentralhalle.jpg');
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: cover;
+            background-color: black;
+        }
 
         .overlay {
             background-color: rgba(0, 0, 0, 0.6);
@@ -85,18 +88,30 @@
             100% { transform: translateX(-50%) translateY(0); }
         }
 
-        @media (max-width: 600px) {
+        /* ✅ Mobile Portrait Fix */
+        @media (max-width: 768px) and (orientation: portrait) {
+            body {
+                background-position: center top;
+                background-size: contain;
+            }
+
+            .overlay {
+                margin-top: 20vh;
+            }
+
+            .floating-formula {
+                top: 30%;
+                width: 140px;
+            }
+
             #harmonius {
+                bottom: 20px;
                 width: 120px;
             }
 
             .portal-button {
                 font-size: 14px;
                 padding: 8px 14px;
-            }
-
-            .floating-formula {
-                width: 140px;
             }
 
             .button-container {
