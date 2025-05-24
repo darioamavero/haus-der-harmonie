@@ -2,106 +2,67 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zentralhalle des Hauses der Harmonie</title>
-  <style>
-    html, body {{
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-    }}
-
-    body {{
-      background: url('Zentralhalle.jpg') no-repeat center bottom;
-      background-size: cover;
-      color: white;
-    }}
-
-    .overlay {{
-      position: absolute;
-      top: 10%;
-      left: 5%;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }}
-
-    .overlay button {{
-      background-color: rgba(0, 0, 0, 0.5);
-      border: none;
-      padding: 0.8rem 1.2rem;
-      font-size: 1rem;
-      color: white;
-      cursor: pointer;
-      border-radius: 8px;
-      text-align: left;
-    }}
-
-    .welcome {{
-      position: absolute;
-      top: 18%;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      z-index: 2;
-    }}
-
-    .formula {{
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      width: 180px;
-    }}
-
-    .harmonius {{
-      position: absolute;
-      bottom: 2%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      width: 180px;
-    }}
-
-    @media screen and (max-width: 768px) {{
-      .overlay {{
-        top: 5%;
-        left: 5%;
-      }}
-      .welcome {{
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-      }}
-    }}
-  </style>
+    <meta charset="UTF-8">
+    <title>Zentralhalle des Hauses der Harmonie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('Zentralhalle.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .content {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 5vh auto;
+            width: 60%;
+            border-radius: 15px;
+        }
+        .portals {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .portal {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            margin: 1rem;
+            border: 2px solid white;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .portal:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
 </head>
 <body>
-  <div class="overlay">
-    <button onclick="location.href='liebe.html'">Flügel der Liebe</button>
-    <button onclick="location.href='wissen.html'">Flügel des Wissens</button>
-    <button onclick="location.href='gemeinschaft.html'">Flügel der Gemeinschaft</button>
-    <button onclick="location.href='geschichte.html'">Flügel der Geschichte</button>
-    <button onclick="location.href='transformation.html'">Flügel der Transformation</button>
-    <button onclick="location.href='harmonys.html'">Philosophie der Harmonys</button>
-    <button onclick="location.href='harmonius.html'">Harmonius Einstein & Kodex</button>
-  </div>
-
-  <div class="welcome">
-    <h1>Willkommen im Haus der Harmonie</h1>
-    <p>Klicke auf Harmonius, um eine Einführung zu erhalten.</p>
-  </div>
-
-  <img src="Harmonie_Formula_Golden.png" alt="Harmonieformel" class="formula" />
-  <a href="harmonius.html">
-    <img src="harmonius.png" alt="Harmonius Einstein" class="harmonius" />
-  </a>
+    <header>Zentralhalle des Hauses der Harmonie</header>
+    <div class="content">
+        <p>Willkommen im Herzen des Hauses der Harmonie. Von hier gelangst du zu den fünf Flügeln.</p>
+        <div class="portals">
+            <a href="wissen.html" class="portal">Flügel des Wissens</a>
+            <a href="liebe.html" class="portal">Flügel der Liebe</a>
+            <a href="gemeinschaft.html" class="portal">Flügel der Gemeinschaft</a>
+            <a href="geschichten.html" class="portal">Flügel der Geschichten</a>
+            <a href="transformation.html" class="portal">Flügel der Transformation</a>
+        </div>
+    </div>
 </body>
 </html>
