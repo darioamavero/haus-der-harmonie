@@ -2,129 +2,104 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Haus der Harmonie | Zentralhalle</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('Zentralhalle.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zentralhalle – Haus der Harmonie</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('Zentralhalle.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      text-align: center;
+    }
 
-        .portal-buttons {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
 
-        .portal-buttons button {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.9rem;
-            border-radius: 8px;
-            border: none;
-            background-color: rgba(0, 0, 0, 0.4);
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+    }
 
-        .portal-buttons button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+    .portal-button {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+    }
 
-        .overlay {
-            position: absolute;
-            top: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.35);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-align: center;
-            color: white;
-            max-width: 90%;
-        }
+    .portal-button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
 
-        h2 {
-            font-size: 1.8rem;
-            margin: 0;
-        }
+    .floating-formula {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      width: 200px;
+      transform: translate(-50%, -50%);
+      animation: float 12s ease-in-out infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
 
-        p {
-            font-size: 1rem;
-            margin-top: 0.4rem;
-        }
+    @keyframes float {
+      0% { transform: translate(-50%, -50%) translateY(0); }
+      50% { transform: translate(-50%, -50%) translateY(-30px); }
+      100% { transform: translate(-50%, -50%) translateY(0); }
+    }
 
-        #harmonius {
-            display: block;
-            margin: 0 auto;
-            width: 240px;
-            transition: transform 1s ease-in-out;
-            transform: scale(0.5);
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%) scale(1.0);
-        }
+    @media (max-width: 600px) {
+      .portal-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+      }
 
-        #harmonius.visible {
-            transform: translateX(-50%) scale(1);
-        }
-
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 1.2rem;
-            }
-            p {
-                font-size: 0.85rem;
-            }
-            .portal-buttons button {
-                font-size: 0.8rem;
-                padding: 0.3rem 0.6rem;
-            }
-            #harmonius {
-                width: 180px;
-            }
-        }
-    </style>
+      .floating-formula {
+        width: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="portal-buttons">
-        <button onclick="window.location.href='wissen.html'">Flügel des Wissens</button>
-        <button onclick="window.location.href='liebe.html'">Flügel der Liebe</button>
-        <button onclick="window.location.href='gemeinschaft.html'">Flügel der Gemeinschaft</button>
-        <button onclick="window.location.href='geschichte.html'">Flügel der Geschichte</button>
-        <button onclick="window.location.href='transformation.html'">Flügel der Transformation</button>
-    </div>
 
-    <div class="overlay">
-        <h2>Willkommen im Haus der Harmonie</h2>
-        <p>Klicke auf Harmonius, um eine Einführung zu erhalten</p>
-    </div>
+  <header>Zentralhalle des Hauses der Harmonie</header>
 
-    <img src="harmonius.png" id="harmonius" alt="Harmonius Einstein" onclick="playAudio()" />
+  <!-- Schwebende Formel -->
+  <img src="Harmonie_Formula_Golden.png" alt="Harmonieformel" class="floating-formula">
 
-    <audio id="welcomeAudio" src="harmonius.mp3"></audio>
+  <!-- Flügel Buttons (Platzhalterbeispiel) -->
+  <div class="button-container">
+    <a class="portal-button" href="liebe.html">Flügel der Liebe</a>
+    <a class="portal-button" href="wissen.html">Flügel des Wissens</a>
+    <a class="portal-button" href="gemeinschaft.html">Flügel der Gemeinschaft</a>
+    <a class="portal-button" href="geschichte.html">Flügel der Geschichte</a>
+    <a class="portal-button" href="transformation.html">Flügel der Transformation</a>
+  </div>
 
-    <script>
-        window.addEventListener('load', () => {
-            const img = document.getElementById('harmonius');
-            setTimeout(() => {
-                img.classList.add('visible');
-            }, 500);
-        });
+  <!-- Neue Buttons -->
+  <div class="button-container">
+    <a class="portal-button" href="harmonys.html">Philosophie der Harmonys</a>
+    <a class="portal-button" href="harmonius.html">Harmonius Einstein & Kodex</a>
+  </div>
 
-        function playAudio() {
-            const audio = document.getElementById('welcomeAudio');
-            audio.play();
-        }
-    </script>
 </body>
 </html>
