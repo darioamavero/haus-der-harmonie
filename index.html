@@ -2,75 +2,98 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zentralhalle – Haus der Harmonie</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('Zentralhalle.jpg');
+      background: url('Zentralhalle.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       color: white;
-      text-align: center;
+      overflow-x: hidden;
     }
 
-    header {
-      background-color: rgba(0, 0, 0, 0.5);
+    .content {
       padding: 2rem;
-      font-size: 2rem;
-      font-weight: bold;
     }
 
-    .button-container {
+    h1 {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 1rem;
+      display: inline-block;
+    }
+
+    .button-column {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       gap: 1rem;
-      margin: 2rem auto;
-      max-width: 1000px;
+      position: absolute;
+      top: 30%;
+      left: 5%;
     }
 
     .portal-button {
       background-color: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
       color: white;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
+      padding: 0.8rem 1.2rem;
+      font-size: 1.1rem;
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
       backdrop-filter: blur(6px);
+      width: 220px;
     }
 
     .portal-button:hover {
       background-color: rgba(255, 255, 255, 0.3);
     }
 
+    .harmonius {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+    }
+
     .floating-formula {
       position: absolute;
-      top: 40%;
+      top: 15%;
       left: 50%;
       width: 200px;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       animation: float 12s ease-in-out infinite;
       opacity: 0.85;
       pointer-events: none;
     }
 
     @keyframes float {
-      0% { transform: translate(-50%, -50%) translateY(0); }
-      50% { transform: translate(-50%, -50%) translateY(-30px); }
-      100% { transform: translate(-50%, -50%) translateY(0); }
+      0% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-30px); }
+      100% { transform: translateX(-50%) translateY(0); }
     }
 
     @media (max-width: 600px) {
       .portal-button {
         font-size: 1rem;
-        padding: 0.8rem 1.2rem;
+        padding: 0.6rem 1rem;
+        width: 90%;
+      }
+
+      .button-column {
+        left: 2%;
+      }
+
+      .harmonius {
+        width: 120px;
       }
 
       .floating-formula {
@@ -80,26 +103,21 @@
   </style>
 </head>
 <body>
+  <div class="content">
+    <h1>Zentralhalle des Hauses der Harmonie</h1>
 
-  <header>Zentralhalle des Hauses der Harmonie</header>
+    <img src="Harmonie_Formula_Golden.png" alt="Harmonieformel" class="floating-formula" />
+    <img src="harmonius.png" alt="Harmonius Einstein" class="harmonius" />
 
-  <!-- Schwebende Formel -->
-  <img src="Harmonie_Formula_Golden.png" alt="Harmonieformel" class="floating-formula">
-
-  <!-- Flügel Buttons -->
-  <div class="button-container">
-    <a class="portal-button" href="liebe.html">Flügel der Liebe</a>
-    <a class="portal-button" href="wissen.html">Flügel des Wissens</a>
-    <a class="portal-button" href="gemeinschaft.html">Flügel der Gemeinschaft</a>
-    <a class="portal-button" href="geschichte.html">Flügel der Geschichte</a>
-    <a class="portal-button" href="transformation.html">Flügel der Transformation</a>
+    <div class="button-column">
+      <a class="portal-button" href="liebe.html">Flügel der Liebe</a>
+      <a class="portal-button" href="wissen.html">Flügel des Wissens</a>
+      <a class="portal-button" href="gemeinschaft.html">Flügel der Gemeinschaft</a>
+      <a class="portal-button" href="geschichte.html">Flügel der Geschichte</a>
+      <a class="portal-button" href="transformation.html">Flügel der Transformation</a>
+      <a class="portal-button" href="harmonys.html">Philosophie der Harmonys</a>
+      <a class="portal-button" href="harmonius.html">Harmonius Einstein & Kodex</a>
+    </div>
   </div>
-
-  <!-- Zusätzliche Buttons -->
-  <div class="button-container">
-    <a class="portal-button" href="harmonys.html">Philosophie der Harmonys</a>
-    <a class="portal-button" href="harmonius.html">Harmonius Einstein & Kodex</a>
-  </div>
-
 </body>
 </html>
