@@ -42,8 +42,20 @@
             cursor: pointer;
         }
 
-        #voice {
-            display: none;
+        .harmonius-hint {
+            position: absolute;
+            bottom: 140px;
+            left: 50%;
+            transform: translateX(50%);
+            background: rgba(255, 255, 240, 0.95);
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 0.9em;
+            font-style: italic;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            animation: floatMsg 4s ease-in-out infinite;
+            pointer-events: none;
+            color: #333;
         }
 
         .button-container {
@@ -89,7 +101,11 @@
             100% { transform: translateX(-50%) translateY(0); }
         }
 
-        /* ✅ Mobile Portrait Fix */
+        @keyframes floatMsg {
+            0%, 100% { transform: translateX(50%) translateY(0); }
+            50% { transform: translateX(50%) translateY(-6px); }
+        }
+
         @media (max-width: 768px) and (orientation: portrait) {
             body {
                 background-position: center top;
@@ -110,6 +126,11 @@
                 width: 120px;
             }
 
+            .harmonius-hint {
+                bottom: 22vh;
+                font-size: 0.8em;
+            }
+
             .portal-button {
                 font-size: 14px;
                 padding: 8px 14px;
@@ -122,7 +143,10 @@
     </style>
 </head>
 <body>
-   
+    <div class="overlay">
+        <h1>Willkommen im Haus der Harmonie</h1>
+        <p>Klicke auf Harmonius, um eine Einführung zu erhalten.</p>
+    </div>
 
     <div class="button-container">
         <a class="portal-button" href="liebe.html">Flügel der Liebe</a>
@@ -135,6 +159,7 @@
     </div>
 
     <img src="Harmonie_Formula_Golden.png" alt="Harmonieformel" class="floating-formula">
+    <div class="harmonius-hint">👋 Klick mich!</div>
     <img src="harmonius.png" alt="Harmonius" id="harmonius" onclick="document.getElementById('voice').play();">
     <audio id="voice" src="harmonius.mp3"></audio>
 </body>
