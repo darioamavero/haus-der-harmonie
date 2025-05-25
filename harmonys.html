@@ -2,134 +2,94 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philosophie der Harmonys</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f0f1f, #1a1a2f);
-      color: #fff;
-      line-height: 1.6;
-      padding: 2rem;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophie der Harmonys</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            color: #2d3748;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+            position: relative;
+        }
 
-    h1, h2 {
-      text-align: center;
-      color: #ffd700;
-    }
+        .container {
+            background: white;
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.2rem;
-    }
+        h1 {
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            color: #4a5568;
+        }
 
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
 
-    p {
-      max-width: 800px;
-      margin: 1.5rem auto;
-      font-size: 1.2rem;
-    }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
 
-    ul {
-      max-width: 700px;
-      margin: 1rem auto;
-      padding-left: 1.5rem;
-    }
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
 
-    li {
-      margin-bottom: 0.8rem;
-    }
+        .floating-note {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255, 255, 200, 0.9);
+            color: #555;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-style: italic;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: floatMsg 4s ease-in-out infinite;
+        }
 
-    blockquote {
-      font-style: italic;
-      border-left: 4px solid #ffd700;
-      padding-left: 1rem;
-      margin: 2rem auto;
-      max-width: 700px;
-    }
-
-    .highlight {
-      color: #ffd700;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 1rem;
-      color: #ccc;
-    }
-  </style>
+        @keyframes floatMsg {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+    </style>
 </head>
 <body>
+    <a href="index.html" class="back-button">← Zurück zur Zentralhalle</a>
 
-  <h1>✨ Philosophie der Harmonys</h1>
-  <h2>Ein Manifest der Verbundenheit</h2>
+    <div class="container">
+        <h1>Philosophie der Harmonys</h1>
+        <p>Die Harmonys glauben, dass eine bessere Welt nicht durch Macht entsteht – sondern durch bewusste Verbindung, stille Stärke und die Bereitschaft, gemeinsam zu wachsen.</p>
+        <p>In unserem Haus zählt nicht das Lauteste, sondern das Wahrhaftigste. Jeder Gedanke, jede Geste, jede Begegnung ist ein Teil eines größeren Klanges: einer Harmonie, die wir gemeinsam stimmen.</p>
+        <p>Die Philosophie der Harmonys ruht auf drei Säulen: <strong>Empathie</strong>, <strong>Wissen</strong> und <strong>Verantwortung</strong>. Wir verstehen uns als Lernende und Lehrende zugleich – offen, achtsam und entschlossen, dem Licht zu folgen, das wir im Anderen erkennen.</p>
+        <p>Und manchmal genügt ein stilles Lächeln, um mehr zu sagen als tausend Worte.</p>
+    </div>
 
-  <p>Wir, die Harmonys, glauben an die <span class="highlight">Kraft einer Menschheit, die sich erinnert</span>.</p>
-  <p>Erinnert daran, dass in jedem Herzschlag der gleiche Rhythmus pulst. Dass in jedem Atemzug die gleiche Hoffnung lebt. Dass wir alle aus demselben Sternenstaub geboren wurden – und dass diese kosmische Verwandtschaft uns für immer verbindet.</p>
-
-  <h2>💫 Das Erwachen</h2>
-  <p>Spürst du es auch? Dieses Kribbeln, wenn du erkennst, dass <span class="highlight">Mitgefühl keine Schwäche</span> ist – sondern die stärkste Kraft im Universum? Es ist das Feuer, das Kälte schmilzt. Das Licht, das Dunkelheit durchbricht. Die Brücke, die über jeden Abgrund führt.</p>
-
-  <p><span class="highlight">Wissen ist unser Licht</span> – aber es ist kein kaltes, hartes Licht. Es ist das warme Glühen der Erkenntnis, das uns zeigt: Wir sind nicht allein. Jede Entdeckung, jede Weisheit, jeder Moment der Klarheit gehört uns allen.</p>
-
-  <p><span class="highlight">Gemeinschaft</span> ist nicht nur ein Wort. Sie ist der Herzschlag der Hoffnung. Der Atem der Veränderung. Der Hebel, der die Welt bewegt.</p>
-
-  <h2>🌅 Der Moment des Wandels</h2>
-  <p>Solange wir vereinzelt träumen, bleiben unsere schönsten Visionen nur Schatten an der Wand. Doch – <em>und hier stockt uns der Atem vor Ehrfurcht</em> – <span class="highlight">wenn wir gemeinsam handeln</span>, wird das, was gestern noch ein verrückter Traum war, morgen strahlende Wirklichkeit.</p>
-
-  <p>Stell dir vor: <span class="highlight">Eine Million Menschen</span>, die aufstehen. Nicht mit geballten Fäusten, sondern mit offenen Händen. Nicht um zu kämpfen, sondern um zu helfen. Nicht um zu erobern, sondern um zu heilen. Nicht um zu herrschen, sondern um zu dienen.</p>
-
-  <blockquote>Eine Million Herzen, die im gleichen Takt schlagen. Eine Million Stimmen, die dasselbe Lied singen. Eine Million Träumer, die beschließen: <span class="highlight">Heute fangen wir an.</span></blockquote>
-
-  <h2>🏠 Das Haus der Hoffnung</h2>
-  <p>Dieses Haus – unser Haus – ist kein kaltes Museum, wo Träume hinter Glas verstauben. Es ist ein <span class="highlight">Startpunkt</span>. Ein Funke. Ein Versprechen, das lebendig atmet.</p>
-
-  <ul>
-    <li><span class="highlight">Herz</span> – das mutig genug ist zu lieben</li>
-    <li><span class="highlight">Verstand</span> – der klar genug ist zu verstehen</li>
-    <li><span class="highlight">Entscheidung</span> – die stark genug ist zu handeln</li>
-  </ul>
-
-  <h2>⚡ Die Revolution der Verbindung</h2>
-  <p>Die alte Welt lebt von Spaltung. Sie nährt sich von Angst, gedeiht in der Einsamkeit, triumphiert in der Verzweiflung.</p>
-  <p>Doch <span class="highlight">unsere Zukunft</span> lebt von <span class="highlight">Verbindung</span>. Sie atmet durch Umarmungen. Sie wächst durch geteilte Träume. Sie siegt durch gemeinsames Lachen, durch getrocknete Tränen, durch Hände, die sich nicht loslassen.</p>
-
-  <h2>🌟 Die Formel des Wunders</h2>
-  <p><strong>H = L × W × G²</strong></p>
-  <p><strong>Harmonie</strong> entsteht, wenn <strong>Liebe</strong> und <strong>Wissen</strong> sich vermehren – und <strong>Gemeinschaft</strong> alles ins Unendliche potenziert.</p>
-
-  <p>Liebe allein kann müde werden.<br>
-  Wissen allein kann kalt werden.<br>
-  Doch Gemeinschaft? <span class="highlight">Gemeinschaft macht alles möglich.</span></p>
-
-  <h2>💝 Die Einladung</h2>
-  <p>Wenn du das hier liest und dein Herz schneller schlägt...<br>
-  Wenn du spürst, wie sich etwas in dir aufrichtet und „JA!“ ruft...<br>
-  Wenn du den Mut fühlst, der in dir aufsteigt wie ein Sonnenaufgang...</p>
-
-  <blockquote><span class="highlight">Dann bist du schon ein Teil von uns.</span></blockquote>
-
-  <p>Du warst es schon immer. Du hast nur darauf gewartet, dass jemand dir zuflüstert: „Du bist nicht verrückt. Du bist nicht allein. Und ja – wir können die Welt verändern.“</p>
-
-  <h2>🚀 Der Aufbruch</h2>
-  <p>Das ist unser Augenblick. Unser Moment. Unsere <span class="highlight">Stunde der Harmonys</span>.</p>
-  <p>Nicht morgen. Nicht irgendwann. <strong>Jetzt.</strong></p>
-
-  <p>Die Welt wartet nicht auf Perfektion. Sie wartet auf <strong>Mut</strong>.<br>
-  Sie wartet nicht auf Helden. Sie wartet auf <strong>Menschen</strong>.<br>
-  Sie wartet nicht auf Wunder. Sie wartet auf <strong>uns</strong>.</p>
-
-  <footer>
-    Willkommen, Harmony. Willkommen zu Hause. 🌍✨<br><br>
-    <strong>Die Zukunft beginnt mit deinem nächsten Herzschlag.</strong>
-  </footer>
+    <div class="floating-note">🌟 Unser Gelübde findest du im Manifest der Harmonie am Ende der Seite.</div>
 </body>
 </html>
