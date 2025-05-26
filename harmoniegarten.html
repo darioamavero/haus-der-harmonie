@@ -31,7 +31,7 @@
     .baum {
       width: 100px;
       text-align: center;
-      animation: wachsen 1.4s ease-out;
+      animation: wachsen 1.2s ease-out;
     }
 
     .baum img {
@@ -95,10 +95,18 @@
   <div id="garten"></div>
 
   <script>
-    function pflanzeBaum() {
-      const name = document.getElementById("name").value.trim();
-      if (!name) return;
+    function ladeBaeume() {
+      const baeume = JSON.parse(localStorage.getItem("harmoniegarten")) || [];
+      baeume.forEach(name => zeigeBaum(name));
+    }
 
+    function speichereBaum(name) {
+      const baeume = JSON.parse(localStorage.getItem("harmoniegarten")) || [];
+      baeume.push(name);
+      localStorage.setItem("harmoniegarten", JSON.stringify(baeume));
+    }
+
+    function zeigeBaum(name) {
       const garten = document.getElementById("garten");
       const baum = document.createElement("div");
       baum.className = "baum";
@@ -114,9 +122,19 @@
       baum.appendChild(img);
       baum.appendChild(schild);
       garten.appendChild(baum);
-
-      document.getElementById("name").value = "";
     }
+
+    function pflanzeBaum() {
+      const input = document.getElementById("name");
+      const name = input.value.trim();
+      if (!name) return;
+
+      zeigeBaum(name);
+      speichereBaum(name);
+      input.value = "";
+    }
+
+    ladeBaeume();
   </script>
 </body>
 </html>
