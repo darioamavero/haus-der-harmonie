@@ -1,155 +1,67 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Flügel der Gemeinschaft – Harmoniegarten</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flügel der Gemeinschaft</title>
   <style>
     body {
-      margin: 0;
+      background: url('Hintergrund.jpg') center/cover no-repeat fixed;
       font-family: Georgia, serif;
-      background: url('FlügelderGemeinschaft.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #f5f5dc;
-    }
-
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.55);
-      margin: 2rem auto;
-      padding: 2rem;
-      border-radius: 12px;
-      width: 85%;
-      max-width: 1000px;
-    }
-
-    h1 {
-      text-align: center;
-      color: gold;
-      margin-top: 1rem;
-    }
-
-    h2 {
-      color: #90ee90;
-    }
-
-    a.back {
-      display: inline-block;
-      margin: 1rem;
-      padding: 0.5rem 1rem;
-      background: rgba(255, 215, 0, 0.2);
       color: white;
-      border: 1px solid gold;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .garten-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 20px;
-      margin-top: 2rem;
-    }
-
-    .baum {
       text-align: center;
-      animation: wachsen 1.2s ease-out;
+      padding: 2em;
     }
-
+    h1 {
+      color: lightgreen;
+    }
+    #gartenbereich {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 1em;
+      margin: 2em 0;
+    }
+    .baum {
+      animation: wachsen 1s ease-out;
+    }
     .baum img {
-      width: 70px;
+      width: 80px;
       height: auto;
-      animation: schimmern 2s ease-in-out infinite alternate;
     }
-
     .schild {
-      font-size: 0.85em;
-      color: #ccc;
-      margin-top: 4px;
+      margin-top: 0.3em;
+      font-weight: bold;
+      font-size: 0.9em;
     }
-
     @keyframes wachsen {
-      from { transform: scale(0); opacity: 0; }
+      from { transform: scale(0.5); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-
-    @keyframes schimmern {
-      from { filter: drop-shadow(0 0 2px gold); }
-      to { filter: drop-shadow(0 0 6px white); }
-    }
-
-    form {
-      margin-top: 1rem;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    input[type="text"] {
-      padding: 6px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      padding: 6px 12px;
-      background: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
     #willkommen {
-      text-align: center;
+      margin-top: 1em;
       font-size: 1.1em;
-      color: #ffffcc;
-      margin-top: 1.5rem;
-      opacity: 0;
-      animation: fadein 2s forwards;
+      color: #90ee90;
     }
-
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    input, button {
+      padding: 0.5em;
+      font-size: 1em;
+      margin: 0.5em;
     }
   </style>
 </head>
 <body>
-  <a href="index.html" class="back">← Zurück zur Zentralhalle</a>
-  <h1>Flügel der Gemeinschaft</h1>
-
-  <div class="overlay">
-    <h2>🌳 Harmoniegarten</h2>
-    <p>Lege dein Gelübde ab und pflanze deinen Baum der Harmonie. Jeder gepflanzte Baum wird für andere sichtbar – als Symbol deiner Zugehörigkeit.</p>
-
-    <form onsubmit="pflanzeBaum(); return false;">
-      <input type="text" id="name" placeholder="Dein Name oder Pseudonym" required>
-      <button type="submit">🌱 Pflanze deinen Baum</button>
-    </form>
-
-    <div id="gartenbereich" class="garten-grid"></div>
-    <div id="willkommen"></div>
-    <audio id="sound" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Water_drop.ogg" preload="auto"></audio>
-  </div>
-
-  <div class="overlay">
-    <h2>🚀 Projektinkubator</h2>
-    <p>Hier erwachen Projekte zum Leben: gemeinsames Denken, gemeinsames Handeln. Visionen werden zu greifbaren Formen durch Zusammenarbeit.</p>
-  </div>
-
-  <div class="overlay">
-    <h2>🎙️ Rat der Stimmen</h2>
-    <p>Ein Raum für Mitsprache, Reflexion und kollektive Weisheit. Jede Stimme zählt, jede Perspektive erweitert das Ganze.</p>
-  </div>
+  <a href="index.html" style="color: #ccc;">← Zurück zur Zentralhalle</a>
+  <h1>🌳 Harmoniegarten</h1>
+  <p>Lege dein Gelübde ab und pflanze deinen Baum der Harmonie.<br/>Jeder gepflanzte Baum wird für andere sichtbar – als Symbol deiner Zugehörigkeit.</p>
+  <input type="text" id="nameInput" placeholder="Dein Name oder Pseudonym" />
+  <button onclick="pflanzeBaum()">🌱 Pflanze deinen Baum</button>
+  <div id="gartenbereich"></div>
+  <div id="willkommen"></div>
+  <audio id="sound" src="harmonius.mp3"></audio>
 
   <script>
-    const baumBilder = [
-  "https://cdn-icons-png.flaticon.com/512/747/747310.png",
-  "https://cdn-icons-png.flaticon.com/512/3421/3421765.png",
-  "https://cdn-icons-png.flaticon.com/512/1687/1687815.png"
-];
+    const baumBilder = ["baum1.png", "baum2.png", "baum3.png", "baum4.png"];
 
     function ladeBaeume() {
       const baeume = JSON.parse(localStorage.getItem("harmoniegarten")) || [];
@@ -183,16 +95,13 @@
         document.getElementById("sound").play();
         const willkommen = document.getElementById("willkommen");
         willkommen.innerText = `Willkommen, ${name}. Dein Gelübde wurzelt nun im Garten der Zukunft.`;
-        willkommen.style.opacity = "0";
-        willkommen.style.animation = "fadein 2s forwards";
       }
     }
 
     function pflanzeBaum() {
-      const input = document.getElementById("name");
+      const input = document.getElementById("nameInput");
       const name = input.value.trim();
-      if (!name) return;
-
+      if (!name) return alert("Bitte gib einen Namen ein.");
       zeigeBaum(name, true);
       speichereBaum(name);
       input.value = "";
