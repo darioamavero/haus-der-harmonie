@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harmoniegarten</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #e6f2e6, #fefefe);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    #garten {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 30px;
+      justify-content: center;
+    }
+
+    .baum {
+      width: 100px;
+      text-align: center;
+      animation: wachsen 1.4s ease-out;
+    }
+
+    .baum img {
+      width: 80px;
+      transition: transform 0.4s;
+    }
+
+    .baum:hover img {
+      transform: scale(1.1);
+    }
+
+    .schild {
+      margin-top: 4px;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    @keyframes wachsen {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    #neuForm {
+      margin-top: 30px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 8px 14px;
+      background-color: #66bb6a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌳 Harmoniegarten</h1>
+  <p>Ein Baum für jede Seele, die das Gelübde abgelegt hat.</p>
+
+  <form id="neuForm" onsubmit="pflanzeBaum(); return false;">
+    <input type="text" id="name" placeholder="Dein Name oder Pseudonym" required>
+    <button type="submit">🌱 Pflanze deinen Baum</button>
+  </form>
+
+  <div id="garten"></div>
+
+  <script>
+    function pflanzeBaum() {
+      const name = document.getElementById("name").value.trim();
+      if (!name) return;
+
+      const garten = document.getElementById("garten");
+      const baum = document.createElement("div");
+      baum.className = "baum";
+
+      const img = document.createElement("img");
+      img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Tree_Icon.png/480px-Tree_Icon.png";
+      img.alt = "Baum";
+
+      const schild = document.createElement("div");
+      schild.className = "schild";
+      schild.innerText = name;
+
+      baum.appendChild(img);
+      baum.appendChild(schild);
+      garten.appendChild(baum);
+
+      document.getElementById("name").value = "";
+    }
+  </script>
+</body>
+</html>
