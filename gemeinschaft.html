@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Flügel der Gemeinschaft – Harmoniegarten</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
@@ -14,12 +14,12 @@
     }
 
     .overlay {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.55);
       margin: 2rem auto;
       padding: 2rem;
       border-radius: 12px;
-      width: 80%;
-      max-width: 900px;
+      width: 85%;
+      max-width: 1000px;
     }
 
     h1 {
@@ -44,23 +44,28 @@
       font-weight: bold;
     }
 
+    .garten-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 20px;
+      margin-top: 2rem;
+    }
+
     .baum {
-      display: inline-block;
-      margin: 10px;
       text-align: center;
-      animation: wachsen 1.4s ease-out;
-      position: relative;
+      animation: wachsen 1.2s ease-out;
     }
 
     .baum img {
-      width: 80px;
+      width: 70px;
+      height: auto;
       animation: schimmern 2s ease-in-out infinite alternate;
     }
 
     .schild {
-      font-size: 0.9em;
+      font-size: 0.85em;
       color: #ccc;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     @keyframes wachsen {
@@ -69,8 +74,8 @@
     }
 
     @keyframes schimmern {
-      from { filter: drop-shadow(0 0 4px gold); }
-      to { filter: drop-shadow(0 0 10px white); }
+      from { filter: drop-shadow(0 0 2px gold); }
+      to { filter: drop-shadow(0 0 6px white); }
     }
 
     form {
@@ -96,11 +101,6 @@
       cursor: pointer;
     }
 
-    #gartenbereich {
-      margin-top: 2rem;
-      text-align: center;
-    }
-
     #willkommen {
       text-align: center;
       font-size: 1.1em;
@@ -122,16 +122,16 @@
 
   <div class="overlay">
     <h2>🌳 Harmoniegarten</h2>
-    <p>Ein Ort des Wachstums – für Pflanzen, Ideen und zwischenmenschliche Verbindung.</p>
-    <p><strong>Lege dein Gelübde ab</strong> und pflanze deinen Baum der Harmonie:</p>
+    <p>Lege dein Gelübde ab und pflanze deinen Baum der Harmonie. Jeder gepflanzte Baum wird für andere sichtbar – als Symbol deiner Zugehörigkeit.</p>
 
     <form onsubmit="pflanzeBaum(); return false;">
       <input type="text" id="name" placeholder="Dein Name oder Pseudonym" required>
       <button type="submit">🌱 Pflanze deinen Baum</button>
     </form>
 
-    <div id="gartenbereich"></div>
+    <div id="gartenbereich" class="garten-grid"></div>
     <div id="willkommen"></div>
+    <audio id="sound" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Water_drop.ogg" preload="auto"></audio>
   </div>
 
   <div class="overlay">
@@ -145,6 +145,12 @@
   </div>
 
   <script>
+    const baumBilder = [
+      "https://cdn-icons-png.flaticon.com/512/427/427735.png",
+      "https://cdn-icons-png.flaticon.com/512/2903/2903989.png",
+      "https://cdn-icons-png.flaticon.com/512/4245/4245280.png"
+    ];
+
     function ladeBaeume() {
       const baeume = JSON.parse(localStorage.getItem("harmoniegarten")) || [];
       baeume.forEach(name => zeigeBaum(name, false));
@@ -162,7 +168,7 @@
       baum.className = "baum";
 
       const img = document.createElement("img");
-      img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Tree_Icon.png/480px-Tree_Icon.png";
+      img.src = baumBilder[Math.floor(Math.random() * baumBilder.length)];
       img.alt = "Baum";
 
       const schild = document.createElement("div");
@@ -174,6 +180,7 @@
       container.appendChild(baum);
 
       if (mitBotschaft) {
+        document.getElementById("sound").play();
         const willkommen = document.getElementById("willkommen");
         willkommen.innerText = `Willkommen, ${name}. Dein Gelübde wurzelt nun im Garten der Zukunft.`;
         willkommen.style.opacity = "0";
