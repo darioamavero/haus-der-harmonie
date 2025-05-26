@@ -11,22 +11,26 @@
             background-size: cover;
             color: #f5f5dc;
         }
+
         .overlay {
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.5);
             margin: 2rem auto;
             padding: 2rem;
             border-radius: 12px;
             width: 80%;
-            max-width: 800px;
+            max-width: 900px;
         }
+
         h1 {
             text-align: center;
             color: gold;
             margin-top: 1rem;
         }
+
         h2 {
-            color: #ffd700;
+            color: #90ee90;
         }
+
         a.back {
             display: inline-block;
             margin: 1rem;
@@ -38,22 +42,124 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+        .baum {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+            animation: wachsen 1s ease-out;
+        }
+
+        .baum img {
+            width: 60px;
+        }
+
+        .schild {
+            font-size: 0.8em;
+            color: #ccc;
+        }
+
+        @keyframes wachsen {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        form {
+            margin-top: 1rem;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        input[type="text"] {
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 6px 12px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #gartenbereich {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <a href="index.html" class="back">← Zurück zur Zentralhalle</a>
     <h1>Flügel der Gemeinschaft</h1>
+
     <div class="overlay">
-        <h2>🌿 Harmoniegarten</h2>
-        <p>Ein Ort des Wachstums – für Pflanzen, Ideen und zwischenmenschliche Verbindung. Ruhe und Natur wirken als Lehrer des Miteinanders.</p>
+        <h2>🌳 Harmoniegarten</h2>
+        <p>Ein Ort des Wachstums – für Pflanzen, Ideen und zwischenmenschliche Verbindung. Pflanze deinen eigenen Baum des Gelübdes:</p>
+
+        <form onsubmit="pflanzeBaum(); return false;">
+            <input type="text" id="name" placeholder="Dein Name oder Pseudonym" required>
+            <button type="submit">🌱 Pflanze deinen Baum</button>
+        </form>
+
+        <div id="gartenbereich"></div>
     </div>
+
     <div class="overlay">
         <h2>🚀 Projektinkubator</h2>
         <p>Hier erwachen Projekte zum Leben: gemeinsames Denken, gemeinsames Handeln. Visionen werden zu greifbaren Formen durch Zusammenarbeit.</p>
     </div>
+
     <div class="overlay">
         <h2>🎙️ Rat der Stimmen</h2>
         <p>Ein Raum für Mitsprache, Reflexion und kollektive Weisheit. Jede Stimme zählt, jede Perspektive erweitert das Ganze.</p>
     </div>
+
+    <script>
+        function ladeBaeume() {
+            const baeume = JSON.parse(localStorage.getItem("harmoniegarten")) || [];
+            baeume.forEach(name => zeigeBaum(name));
+        }
+
+        function speichereBaum(name) {
+            const baeume = JSON.parse(localStorage.getItem("harmoniegarten")) || [];
+            baeume.push(name);
+            localStorage.setItem("harmoniegarten", JSON.stringify(baeume));
+        }
+
+        function zeigeBaum(name) {
+            const container = document.getElementById("gartenbereich");
+            const baum = document.createElement("div");
+            baum.className = "baum";
+
+            const img = document.createElement("img");
+            img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Tree_Icon.png/480px-Tree_Icon.png";
+            img.alt = "Baum";
+
+            const schild = document.createElement("div");
+            schild.className = "schild";
+            schild.innerText = name;
+
+            baum.appendChild(img);
+            baum.appendChild(schild);
+            container.appendChild(baum);
+        }
+
+        function pflanzeBaum() {
+            const input = document.getElementById("name");
+            const name = input.value.trim();
+            if (!name) return;
+
+            zeigeBaum(name);
+            speichereBaum(name);
+            input.value = "";
+        }
+
+        ladeBaeume();
+    </script>
 </body>
 </html>
