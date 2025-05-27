@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -113,24 +112,36 @@
   </div>
 
   <script>
-    function show(direction) {
-      let text = "";
-      switch(direction) {
-        case "ich":
-          text = "Reflektiere deine Bedürfnisse, Ängste und Werte. Wer bist du – losgelöst von allen Rollen?";
-          break;
-        case "du":
-          text = "Sieh die Welt durch die Augen des Anderen. Empathie ist die Brücke zwischen Herzen.";
-          break;
-        case "wir":
-          text = "Was kannst du beitragen? Gemeinschaft entsteht dort, wo Verantwortung geteilt wird.";
-          break;
-        case "alle":
-          text = "Du bist Teil des Ganzen. Dein Bewusstsein ist verbunden mit allem Leben.";
-          break;
-      }
-      document.getElementById("output").innerText = text;
-    }
-  </script>
+const antworten = {
+  ich: [
+    "Was denke ich wirklich über mich – wenn niemand zuhört?",
+    "Mut zur Wahrheit beginnt im eigenen Herzen.",
+    "Heile dich – und du veränderst die Welt um dich."
+  ],
+  du: [
+    "Wann habe ich dich zuletzt wirklich gesehen?",
+    "Verstehen beginnt dort, wo das Ego still wird.",
+    "Begegne dem Du – nicht dem Bild, das du von ihm hast."
+  ],
+  wir: [
+    "Welche unausgesprochenen Verbindungen trage ich in mir?",
+    "Gemeinschaft ist mehr als Nähe – sie ist Verantwortung.",
+    "Lass uns ein WIR formen, das niemanden ausschließt."
+  ],
+  alle: [
+    "Bin ich Teil eines Ganzen – oder nur Beobachter?",
+    "Die Welt spiegelt, was wir kollektiv fühlen.",
+    "Handle so, als wärst du ein Knotenpunkt allen Lebens – denn du bist es."
+  ]
+};
+
+let index = { ich: 0, du: 0, wir: 0, alle: 0 };
+
+function showContent(richtung) {
+  const output = document.getElementById("output");
+  output.textContent = antworten[richtung][index[richtung]];
+  index[richtung] = (index[richtung] + 1) % antworten[richtung].length;
+}
+</script>
 </body>
 </html>
