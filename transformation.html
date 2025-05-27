@@ -1,147 +1,115 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flügel der Transformation</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-image: url('FlügelderTransformation.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: white;
-    }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.3);
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    .back-button {
-      display: block;
-      margin: 1rem;
-      background-color: rgba(255, 215, 0, 0.8);
-      color: black;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      width: fit-content;
-    }
-
-    .section {
-      background-color: rgba(0, 0, 0, 0.3);
-      padding: 1.5rem;
-      width: 80%;
-      margin: 2rem auto;
-      border-radius: 10px;
-    }
-
-    .section h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #FFD700;
-    }
-
-    .compass-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .compass-tile {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 12px;
-      text-align: center;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .compass-tile:hover {
-      background-color: rgba(255, 255, 255, 0.25);
-    }
-
-    #output {
-      margin-top: 1.5rem;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      .section {
-        width: 95%;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flügel der Transformation</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: url('FlügelderTransformation.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+        }
+        .section {
+            background: rgba(0, 0, 0, 0.6);
+            margin: 2em auto;
+            padding: 2em;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .compass-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 1em;
+        }
+        .compass-tile {
+            background: #333;
+            padding: 1em 2em;
+            margin: 0.5em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .compass-tile:hover {
+            transform: scale(1.05);
+            background: #555;
+        }
+        #output {
+            margin-top: 1em;
+            font-size: 1.2em;
+            font-style: italic;
+            min-height: 2em;
+        }
+        .back-button {
+            margin: 1em;
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            background: #444;
+            border-radius: 10px;
+        }
+        .back-button:hover {
+            background: #666;
+        }
+    </style>
 </head>
 <body>
-  <a class="back-button" href="index.html">← Zurück zur Zentralhalle</a>
-  <header>Flügel der Transformation</header>
-
-  <div class="section">
-    <h2>🧭 Bewusstseinskompass</h2>
-    <p>Wähle eine Richtung deiner inneren Entwicklung:</p>
-    <div class="compass-grid">
-      <div class="compass-tile" onclick="show('ich')">🧍 Ich</div>
-      <div class="compass-tile" onclick="show('du')">🫂 Du</div>
-      <div class="compass-tile" onclick="show('wir')">🤝 Wir</div>
-      <div class="compass-tile" onclick="show('alle')">🌍 Alle</div>
+    <a class="back-button" href="index.html">← Zurück zur Zentralhalle</a>
+    <header><h1>🧭 Bewusstseinskompass</h1></header>
+    <div class="section">
+        <p>Wähle eine Richtung deiner inneren Entwicklung:</p>
+        <div class="compass-grid">
+            <div class="compass-tile" onclick="show('ich')">Ich</div>
+            <div class="compass-tile" onclick="show('du')">Du</div>
+            <div class="compass-tile" onclick="show('wir')">Wir</div>
+            <div class="compass-tile" onclick="show('alle')">Alle</div>
+        </div>
+        <div id="output"></div>
     </div>
-    <div id="output"></div>
-  </div>
 
-  <div class="section">
-    <h2>🔮 Zukünfte denken</h2>
-    <p>In dieser Sektion entwirfst du mögliche Zukünfte – für dich selbst, für die Gesellschaft und für den Planeten.</p>
-  </div>
+    <script>
+        const antworten = {
+            ich: [
+                "Was denke ich wirklich über mich, wenn niemand zuhört?",
+                "Mut zur Wahrheit beginnt im eigenen Herzen.",
+                "Heile dich – und du veränderst die Welt um dich."
+            ],
+            du: [
+                "Wann habe ich dich zuletzt wirklich gesehen?",
+                "Verstehen beginnt dort, wo das Ego still wird.",
+                "Begegne dem Du – nicht dem Bild, das du von ihm hast."
+            ],
+            wir: [
+                "Welche unausgesprochenen Verbindungen trage ich in mir?",
+                "Gemeinschaft ist mehr als Nähe – sie ist Verantwortung.",
+                "Lass uns ein WIR formen, das niemanden ausschließt."
+            ],
+            alle: [
+                "Bin ich Teil eines Ganzen – oder nur Beobachter?",
+                "Die Welt spiegelt, was wir kollektiv fühlen.",
+                "Handle so, als wärst du ein Knotenpunkt allen Lebens – denn du bist es."
+            ]
+        };
 
-  <div class="section">
-    <h2>🤖 Technologie & Seele</h2>
-    <p>Wie kann Technologie spirituell, ethisch und menschlich werden? Hier verbinden sich Wissenschaft und Weisheit.</p>
-  </div>
-
-  <script>
-const antworten = {
-  ich: [
-    "Was denke ich wirklich über mich – wenn niemand zuhört?",
-    "Mut zur Wahrheit beginnt im eigenen Herzen.",
-    "Heile dich – und du veränderst die Welt um dich."
-  ],
-  du: [
-    "Wann habe ich dich zuletzt wirklich gesehen?",
-    "Verstehen beginnt dort, wo das Ego still wird.",
-    "Begegne dem Du – nicht dem Bild, das du von ihm hast."
-  ],
-  wir: [
-    "Welche unausgesprochenen Verbindungen trage ich in mir?",
-    "Gemeinschaft ist mehr als Nähe – sie ist Verantwortung.",
-    "Lass uns ein WIR formen, das niemanden ausschließt."
-  ],
-  alle: [
-    "Bin ich Teil eines Ganzen – oder nur Beobachter?",
-    "Die Welt spiegelt, was wir kollektiv fühlen.",
-    "Handle so, als wärst du ein Knotenpunkt allen Lebens – denn du bist es."
-  ]
-};
-
-let index = { ich: 0, du: 0, wir: 0, alle: 0 };
-
-function showContent(richtung) {
-  const output = document.getElementById("output");
-  output.textContent = antworten[richtung][index[richtung]];
-  index[richtung] = (index[richtung] + 1) % antworten[richtung].length;
-}
-</script>
+        let interval;
+        function show(richtung) {
+            clearInterval(interval);
+            const output = document.getElementById('output');
+            let index = 0;
+            output.innerText = antworten[richtung][index];
+            interval = setInterval(() => {
+                index = (index + 1) % antworten[richtung].length;
+                output.innerText = antworten[richtung][index];
+            }, 4000);
+        }
+    </script>
 </body>
 </html>
