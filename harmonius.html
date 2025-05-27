@@ -1,240 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Harmonius Einstein & Kodex</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Georgia, serif;
-      background: url('harmonius_background.jpg') center/cover fixed no-repeat;
+      background: linear-gradient(#fefcea, #f1da36);
       margin: 0;
-      padding: 2rem;
-      color: #f5f5dc;
+      padding: 0;
     }
-
-    .frame {
-      background: rgba(0, 0, 0, 0.6);
-      border: 4px solid #ffd700;
-      border-radius: 16px;
-      padding: 2rem;
+    .harmonius-container {
       max-width: 800px;
-      margin: 2rem auto;
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: #ffcc66;
-    }
-
-    .harmonius-block {
-      text-align: center;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .harmonius-block img {
-      width: 160px;
-      margin-bottom: 1rem;
-    }
-
-    .verse {
-      font-style: italic;
-      font-size: 1.1em;
-      color: #ffeecc;
-      margin-bottom: 1rem;
-    }
-
-    .kodex, .commitment-section {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .kodex ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .kodex li {
-      margin: 0.6rem 0;
-      background: rgba(0,0,0,0.3);
-      padding: 0.8rem;
-      border-radius: 8px;
-    }
-
-    .commitment-text {
-      font-size: 1.1em;
-      font-style: italic;
-      margin-bottom: 1.2rem;
-    }
-
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 1.5rem 0;
-    }
-
-    .checkbox-container input {
-      margin-right: 0.6rem;
-      transform: scale(1.4);
-    }
-
-    .harmony-button {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      opacity: 0.5;
-      pointer-events: none;
-      transition: 0.3s;
-    }
-
-    .harmony-button.enabled {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .harmony-button.activated {
-      background: linear-gradient(135deg, #48bb78, #38a169);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 15px rgba(72, 187, 120, 0.4); }
-      50% { box-shadow: 0 0 30px rgba(72, 187, 120, 0.8); }
-    }
-
-    .welcome-message {
-      background: rgba(255,255,240,0.95);
-      color: #2f855a;
-      font-size: 1.2em;
-      font-weight: bold;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 1rem;
-      display: none;
+      margin: auto;
+      padding: 2em;
       text-align: center;
     }
-
+    .harmonius-frame {
+      border: 4px solid gold;
+      border-radius: 20px;
+      padding: 1.5em;
+      background-color: #fff8dc;
+      box-shadow: 0 0 20px gold;
+      margin-bottom: 2em;
+      position: relative;
+    }
+    .harmonius-img {
+      width: 150px;
+      border-radius: 50%;
+      animation: float 3s ease-in-out infinite;
+    }
     @keyframes float {
-      0% { transform: translateY(0); }
+      0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
     }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 2rem;
-      color: #99ffcc;
-      text-decoration: none;
+    .harmonius-text {
+      margin-top: 1em;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    .kodex {
+      background-color: #f0f0f0;
+      padding: 1em;
+      border-radius: 16px;
+      margin-bottom: 2em;
+    }
+    .kodex li {
+      margin: 0.8em 0;
+      background: #e6e6e6;
+      padding: 0.8em;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .geluebde {
+      background: #fff4e6;
+      border: 2px solid #ffd700;
+      border-radius: 16px;
+      padding: 2em;
+      margin-bottom: 3em;
+    }
+    .zertifikat {
+      display: none;
+      margin-top: 2em;
+      padding: 1em;
+      background-color: #e0ffe0;
+      border: 2px solid #4caf50;
+      border-radius: 12px;
+      font-weight: bold;
+      animation: pop 0.8s ease;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="frame harmonius-block">
-    <img src="harmonius.png" alt="Harmonius" />
-    <div class="verse">
-      Halb Genie – aber ganz Harmonie ✨<br>
-      Hüter des Gleichgewichts im Haus der Hoffnung.<br>
-      Ich bin dein Begleiter, nicht dein Lehrer.<br>
-      Ich frage mehr als ich antworte, aber manchmal blitzt ein Stern der Weisheit auf.
+  <div class="harmonius-container">
+    <div class="harmonius-frame">
+      <img src="harmonius.png" alt="Harmonius" class="harmonius-img" />
+      <div class="harmonius-text">
+        <h2>Ich bin Harmonius</h2>
+        <p>
+          Halb Genie, halb Geistwesen, ganz Harmonie.<br />
+          In einer Welt voller Fragen bin ich hier,<br />
+          um dir das Wesentliche zu zeigen: <strong>Mitgefühl</strong> ist klüger als Logik.<br />
+          Verbindung stärker als Trennung.<br /><br />
+          Ich vereine die Weisheit vieler Zeiten und begleite dich durch Räume, durch Gedanken, durch Stille.<br />
+          Man sagt, ich sei wie ein alter Physiker – aber ich bin viel mehr:<br />
+          eine Stimme, ein Leuchten, ein Flüstern des Lichts, ein Freund auf deinem Weg.
+        </p>
+      </div>
+    </div>
+
+    <div class="kodex">
+      <h3>📜 Der Harmonie-Kodex</h3>
+      <ul>
+        <li>✨ Wir teilen Weisheit, nicht Meinung.</li>
+        <li>🧘‍♂️ Wir ehren Stille ebenso wie Worte.</li>
+        <li>🌐 Wir handeln im Geist der Verbundenheit.</li>
+        <li>🔍 Wir bleiben neugierig, nicht besserwissend.</li>
+        <li>⚡ Wir übernehmen Verantwortung für die Wirkung unserer Worte.</li>
+      </ul>
+    </div>
+
+    <div class="geluebde">
+      <h3>💖 Das Gelübde der Harmonys</h3>
+      <p><em>
+        „Ich verstehe, dass dieser Raum nicht nur mir gehört, sondern <strong>uns allen</strong>.<br />
+        Ich verspreche, mit jedem Wort, jeder Tat, jedem Gedanken zum Licht beizutragen.<br />
+        Ich bin bereit, nicht nur zu nehmen, sondern auch zu <strong>geben</strong> –<br />
+        und gemeinsam die Zukunft zu erschaffen, die in unseren Herzen lebt.“
+      </em></p>
+      <label><input type="checkbox" id="geluebdeCheck" /> Ich bin bereit, ein Harmony zu sein</label><br /><br />
+      <button onclick="ablegen()" style="padding: 0.6em 1.5em; font-size: 1em; background-color: #a78bfa; color: white; border: none; border-radius: 10px;">🌟 Harmony aktiviert! 🌟</button>
+      <div id="zertifikat" class="zertifikat">Willkommen, Harmony. Dein Gelübde ist empfangen. 🎉</div>
     </div>
   </div>
 
-  <div class="frame kodex">
-    <h2>📜 Der Harmonie Kodex</h2>
-    <ul>
-      <li>🤝 Wir begegnen einander mit Respekt und Würde.</li>
-      <li>💙 Wir urteilen nicht – wir hören zu.</li>
-      <li>✨ Wir teilen Weisheit, nicht Meinung.</li>
-      <li>🌸 Wir ehren Stille ebenso wie Worte.</li>
-      <li>🌍 Wir handeln im Geist der Verbundenheit.</li>
-      <li>🔍 Wir bleiben neugierig, nicht besserwissend.</li>
-      <li>⚡ Wir übernehmen Verantwortung für die Wirkung unserer Worte.</li>
-    </ul>
-  </div>
-
-  <div class="frame commitment-section">
-    <h2>💖 Das Gelübde der Harmonys</h2>
-    <div class="commitment-text">
-      „Ich verstehe, dass dieser Raum nicht nur mir gehört, sondern <strong>uns allen</strong>.<br>
-      Ich verspreche, mit jedem Wort, jeder Tat, jedem Gedanken zum Licht beizutragen.<br>
-      Ich bin bereit, nicht nur zu nehmen, sondern auch zu <strong>geben</strong> –<br>
-      und gemeinsam die Zukunft zu erschaffen, die in unseren Herzen lebt.“
-    </div>
-
-    <div class="checkbox-container">
-      <input type="checkbox" id="geluebdeCheck" />
-      <label for="geluebdeCheck">Ich bin bereit, ein Harmony zu sein</label>
-    </div>
-
-    <button class="harmony-button" id="geluebdeBtn">
-      ✨ Ich lege mein Gelübde ab ✨
-    </button>
-
-    <div class="welcome-message" id="geluebdeMsg">
-      🎉 Willkommen, Harmony! Du bist jetzt Teil einer Bewegung, die die Welt verändern wird. 🌍💫
-    </div>
-  </div>
-
-  <a class="back-link" href="index.html">← Zurück zur Zentralhalle</a>
-
+  <audio id="konfetti-sound" src="harmonius1.mp3" preload="auto"></audio>
   <script>
-    const checkbox = document.getElementById('geluebdeCheck');
-    const button = document.getElementById('geluebdeBtn');
-    const msg = document.getElementById('geluebdeMsg');
-
-    checkbox.addEventListener('change', function () {
-      if (this.checked) {
-        button.classList.add('enabled');
-      } else {
-        button.classList.remove('enabled');
-        button.classList.remove('activated');
-        msg.style.display = 'none';
+    function ablegen() {
+      const check = document.getElementById("geluebdeCheck");
+      if (!check.checked) {
+        alert("Bitte bestätige zuerst dein Gelübde.");
+        return;
       }
-    });
-
-    button.addEventListener('click', function () {
-      if (this.classList.contains('enabled')) {
-        this.classList.add('activated');
-        this.innerHTML = "🌟 Harmony aktiviert! 🌟";
-        msg.style.display = "block";
-        localStorage.setItem("hatGeluebdeAbgelegt", "true");
-        for (let i = 0; i < 50; i++) {
-          createConfetti();
-        }
-      }
-    });
-
-    function createConfetti() {
-      const confetti = document.createElement("div");
-      confetti.innerHTML = "✨";
-      confetti.style.position = "fixed";
-      confetti.style.left = Math.random() * 100 + "vw";
-      confetti.style.top = "-20px";
-      confetti.style.fontSize = Math.random() * 24 + 12 + "px";
-      confetti.style.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
-      confetti.style.pointerEvents = "none";
-      confetti.style.zIndex = "1000";
-      confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
-      document.body.appendChild(confetti);
-      setTimeout(() => confetti.remove(), 5000);
+      document.getElementById("zertifikat").style.display = "block";
+      localStorage.setItem("harmonysGeluebde", "true");
+      document.getElementById("konfetti-sound").play();
+      // optional: hier ConfettiScript() oder ähnliches
     }
-
-    const style = document.createElement("style");
-    style.textContent = `
-      @keyframes fall {
-        from { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-        to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
   </script>
 </body>
 </html>
