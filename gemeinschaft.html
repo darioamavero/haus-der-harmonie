@@ -47,14 +47,25 @@
       font-size: 1em;
       margin: 0.5em;
     }
+    #sperre {
+      font-style: italic;
+      font-size: 1.1em;
+      color: #ffcccb;
+      margin-top: 2em;
+    }
   </style>
 </head>
 <body>
   <a href="index.html" style="color: #ccc;">← Zurück zur Zentralhalle</a>
   <h1>🌳 Harmoniegarten</h1>
-  <p>Lege dein Gelübde ab und pflanze deinen Baum der Harmonie.<br/>Jeder gepflanzte Baum wird für andere sichtbar – als Symbol deiner Zugehörigkeit.</p>
-  <input type="text" id="nameInput" placeholder="Dein Name oder Pseudonym" />
-  <button onclick="pflanzeBaum()">🌱 Pflanze deinen Baum</button>
+  <div id="pflanzbereich">
+    <p>Lege dein Gelübde ab und pflanze deinen Baum der Harmonie.<br/>Jeder gepflanzte Baum wird für andere sichtbar – als Symbol deiner Zugehörigkeit.</p>
+    <input type="text" id="nameInput" placeholder="Dein Name oder Pseudonym" />
+    <button onclick="pflanzeBaum()">🌱 Pflanze deinen Baum</button>
+  </div>
+  <div id="sperre" style="display:none;">
+    🌿 Nur wer das Gelübde abgelegt hat, darf einen Baum pflanzen.<br/>Kehre zurück, wenn dein Herz bereit ist.
+  </div>
   <div id="gartenbereich"></div>
   <div id="willkommen"></div>
   <audio id="sound" src="harmonius1.mp3"></audio>
@@ -104,6 +115,12 @@
       zeigeBaum(name, true);
       speichereBaum(name);
       input.value = "";
+    }
+
+    const hatGeluebde = localStorage.getItem("hatGeluebdeAbgelegt") === "true";
+    if (!hatGeluebde) {
+      document.getElementById("pflanzbereich").style.display = "none";
+      document.getElementById("sperre").style.display = "block";
     }
 
     ladeBaeume();
