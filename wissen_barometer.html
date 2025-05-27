@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -36,13 +37,59 @@
       width: fit-content;
     }
 
-    .barometer-container {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 2rem;
+    .barometer-button {
+      display: block;
       margin: 2rem auto;
-      width: 90%;
-      max-width: 900px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
       border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+
+    .barometer-button:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    #harmoniebarometer {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #barometer-content {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80%;
+      overflow-y: auto;
+    }
+
+    #close-barometer {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: rgba(255, 215, 0, 0.8);
+      color: black;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -50,8 +97,11 @@
   <a class="back-button" href="wissen.html">← Zurück zum Flügel des Wissens</a>
   <header>📊 Harmoniebarometer</header>
 
-  <div class="barometer-container">
-    <div id="barometer"></div>
+  <button class="barometer-button">Harmoniebarometer anzeigen</button>
+
+  <div id="harmoniebarometer">
+    <button id="close-barometer">Schließen</button>
+    <div id="barometer-content"></div>
   </div>
 </body>
 </html>
