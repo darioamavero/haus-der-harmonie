@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harmoniebarometer</title>
+  <script src="barometer.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('FlügeldesWissens.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .back-button {
+      display: block;
+      margin: 1rem;
+      background-color: rgba(255, 215, 0, 0.8);
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+    }
+
+    .barometer-container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      margin: 2rem auto;
+      width: 90%;
+      max-width: 900px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <a class="back-button" href="wissen.html">← Zurück zum Flügel des Wissens</a>
+  <header>📊 Harmoniebarometer</header>
+
+  <div class="barometer-container">
+    <div id="barometer"></div>
+  </div>
+</body>
+</html>
