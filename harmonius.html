@@ -1,72 +1,67 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harmonius & Hausordnung</title>
-    <link rel="stylesheet" href="hausordnung_manifest.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harmonius & Hausordnung</title>
+  <link rel="stylesheet" href="hausordnung_manifest.css">
 </head>
 <body>
-    <!-- Der gesamte Inhalt wurde direkt vom User geliefert und bleibt unverändert -->
+  <a href="index.html" style="position:absolute;top:10px;left:10px;font-family:Georgia,serif;text-decoration:none;background:#fff;padding:8px 14px;border-radius:8px;border:1px solid #ccc;color:#333;">← Zurück zur Zentralhalle</a>
 
-    <!-- Eingebaut: Unsichtbare Speicherung des Gelübdes -->
-    <script>
-        const checkbox = document.getElementById('commitment-checkbox');
-        const button = document.getElementById('harmony-btn');
-        const welcomeMsg = document.getElementById('welcome-msg');
+  <!-- Inhalt aus deiner HTML-Datei direkt hier -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkbox = document.getElementById('commitment-checkbox');
+      const button = document.getElementById('harmony-btn');
+      const welcomeMsg = document.getElementById('welcome-msg');
+      const audio = new Audio("harmonius1.mp3");
 
-        checkbox.addEventListener('change', function() {
-            if (this.checked) {
-                button.classList.add('enabled');
-            } else {
-                button.classList.remove('enabled');
-                button.classList.remove('activated');
-                welcomeMsg.style.display = 'none';
-            }
-        });
-
-        button.addEventListener('click', function() {
-            if (this.classList.contains('enabled')) {
-                this.classList.add('activated');
-                this.innerHTML = '<span class="sparkle">🌟</span> Harmony aktiviert! <span class="sparkle">🌟</span>';
-                welcomeMsg.style.display = 'block';
-                localStorage.setItem("harmonieGeluebde", "true");
-
-                for (let i = 0; i < 50; i++) {
-                    createConfetti();
-                }
-            }
-        });
-
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.innerHTML = '✨';
-            confetti.style.position = 'fixed';
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.top = '-20px';
-            confetti.style.fontSize = Math.random() * 20 + 10 + 'px';
-            confetti.style.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
-            confetti.style.pointerEvents = 'none';
-            confetti.style.zIndex = '1000';
-            confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
-            document.body.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 5000);
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          button.classList.add('enabled');
+        } else {
+          button.classList.remove('enabled');
+          button.classList.remove('activated');
+          welcomeMsg.style.display = 'none';
         }
+      });
 
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fall {
-                from {
-                    transform: translateY(-20px) rotate(0deg);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateY(100vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+      button.addEventListener('click', function() {
+        if (this.classList.contains('enabled')) {
+          this.classList.add('activated');
+          this.innerHTML = '<span class="sparkle">🌟</span> Harmony aktiviert! <span class="sparkle">🌟</span>';
+          welcomeMsg.style.display = 'block';
+          localStorage.setItem("harmonieGeluebde", "true");
+          audio.play();
+          for (let i = 0; i < 50; i++) createConfetti();
+        }
+      });
+
+      function createConfetti() {
+        const confetti = document.createElement('div');
+        confetti.innerHTML = '✨';
+        confetti.style.position = 'fixed';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.top = '-20px';
+        confetti.style.fontSize = Math.random() * 20 + 10 + 'px';
+        confetti.style.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+        confetti.style.pointerEvents = 'none';
+        confetti.style.zIndex = '1000';
+        confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5000);
+      }
+
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fall {
+          from { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+          to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
 </body>
 </html>
