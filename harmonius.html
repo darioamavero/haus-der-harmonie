@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harmonius & Kodex</title>
   <style>
@@ -11,16 +11,28 @@
       color: #f5f5dc;
       padding: 2em;
     }
-    h1 {
-      text-align: center;
-      color: #ffcc66;
-    }
-    .abschnitt {
+    .section {
       max-width: 900px;
       margin: 2em auto;
       padding: 2em;
       background: rgba(0, 0, 0, 0.5);
       border-radius: 16px;
+    }
+    h1 {
+      text-align: center;
+      color: #ffd700;
+    }
+    .harmonius-image {
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+    }
+    .verse {
+      text-align: center;
+      font-style: italic;
+      margin-top: 1em;
+      font-size: 1.1em;
+      color: #ffeecc;
     }
     button {
       margin-top: 1.5em;
@@ -35,12 +47,29 @@
     button:hover {
       background: #28b285;
     }
+    #bestaetigung {
+      margin-top: 1em;
+      font-style: italic;
+      color: #ccffcc;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 2em;
+      color: #99ffcc;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <h1>🧠 Harmonius & Der Kodex</h1>
+  <h1>🧠 Harmonius Einstein & Der Harmonie-Kodex</h1>
 
-  <div class="abschnitt">
+  <div class="section">
+    <img src="harmonius.png" alt="Harmonius" class="harmonius-image" />
+    <div class="verse">Halb Genie – aber ganz Harmonie ✨<br>Hüter der Ordnung, mit Herz & Magie.</div>
+  </div>
+
+  <div class="section">
     <h2>📜 Der Harmonie Kodex</h2>
     <p>
       Dies ist das Manifest des Hauses der Harmonie. Jeder Harmony, der hier ankommt, verpflichtet sich zu Mitgefühl,
@@ -52,7 +81,7 @@
     </p>
   </div>
 
-  <div class="abschnitt">
+  <div class="section">
     <h2>💖 Das Gelübde der Harmonys</h2>
     <p>
       Ich verspreche, aus vollem Herzen an einer Welt mitzuarbeiten, in der Liebe, Wissen und Gemeinschaft im Zentrum stehen.
@@ -60,16 +89,44 @@
       Ich bin bereit, Teil dieser Bewegung zu sein. <strong>Ich bin ein Harmony.</strong>
     </p>
     <button onclick="geluebdeAblegen()">🌟 Ich lege mein Gelübde ab</button>
-    <p id="bestaetigung" style="margin-top:1em; font-style: italic; color: #ccffcc;"></p>
+    <p id="bestaetigung"></p>
   </div>
 
-  <a href="index.html" style="display: block; text-align: center; margin-top: 2em; color: #99ffcc;">← Zurück zur Zentralhalle</a>
+  <a class="back-link" href="index.html">← Zurück zur Zentralhalle</a>
 
   <script>
     function geluebdeAblegen() {
       localStorage.setItem("hatGeluebdeAbgelegt", "true");
-      document.getElementById("bestaetigung").innerText = "✨ Dein Gelübde wurde gespeichert. Du darfst nun deinen Baum pflanzen.";
+      document.getElementById("bestaetigung").innerText = "✨ Dein Gelübde wurde gespeichert. Du darfst nun deinen Baum im Harmoniegarten pflanzen.";
+
+      for (let i = 0; i < 40; i++) {
+        createConfetti();
+      }
     }
+
+    function createConfetti() {
+      const confetti = document.createElement("div");
+      confetti.innerHTML = "✨";
+      confetti.style.position = "fixed";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.top = "-20px";
+      confetti.style.fontSize = Math.random() * 24 + 12 + "px";
+      confetti.style.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      confetti.style.pointerEvents = "none";
+      confetti.style.zIndex = "1000";
+      confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 5000);
+    }
+
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes fall {
+        from { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+        to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
