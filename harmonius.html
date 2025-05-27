@@ -1,114 +1,216 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Harmonius Einstein & Kodex</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
       font-family: Georgia, serif;
-      background-image: url('harmonius_background.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #f5f5dc;
-      padding-bottom: 4rem;
-    }
-    .section {
-      background: rgba(0, 0, 0, 0.6);
-      margin: 2rem auto;
+      background: url('harmonius_background.jpg') center/cover fixed no-repeat;
+      margin: 0;
       padding: 2rem;
-      border-radius: 12px;
+      color: #f5f5dc;
+    }
+
+    .frame {
+      background: rgba(0, 0, 0, 0.6);
+      border: 4px solid #ffd700;
+      border-radius: 16px;
+      padding: 2rem;
       max-width: 800px;
+      margin: 2rem auto;
     }
+
     h1, h2 {
-      color: gold;
       text-align: center;
+      color: #ffcc66;
     }
-    .harmonius-intro {
+
+    .harmonius-block {
       text-align: center;
       animation: float 6s ease-in-out infinite;
     }
-    .harmonius-intro img {
-      width: 180px;
+
+    .harmonius-block img {
+      width: 160px;
+      margin-bottom: 1rem;
     }
+
     .verse {
-      margin-top: 1em;
       font-style: italic;
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: #ffeecc;
+      margin-bottom: 1rem;
     }
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
+
+    .kodex, .commitment-section {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
     }
-    button {
-      margin-top: 1em;
-      padding: 0.8em 1.5em;
+
+    .kodex ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .kodex li {
+      margin: 0.6rem 0;
+      background: rgba(0,0,0,0.3);
+      padding: 0.8rem;
+      border-radius: 8px;
+    }
+
+    .commitment-text {
+      font-size: 1.1em;
+      font-style: italic;
+      margin-bottom: 1.2rem;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .checkbox-container input {
+      margin-right: 0.6rem;
+      transform: scale(1.4);
+    }
+
+    .harmony-button {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 1rem 2rem;
       font-size: 1.1em;
       border: none;
-      border-radius: 8px;
-      background: #33cc99;
-      color: white;
+      border-radius: 30px;
       cursor: pointer;
+      opacity: 0.5;
+      pointer-events: none;
+      transition: 0.3s;
     }
-    .zertifikat {
-      display: none;
-      margin-top: 1.5em;
-      text-align: center;
-      color: #ccffcc;
+
+    .harmony-button.enabled {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .harmony-button.activated {
+      background: linear-gradient(135deg, #48bb78, #38a169);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 15px rgba(72, 187, 120, 0.4); }
+      50% { box-shadow: 0 0 30px rgba(72, 187, 120, 0.8); }
+    }
+
+    .welcome-message {
+      background: rgba(255,255,240,0.95);
+      color: #2f855a;
+      font-size: 1.2em;
       font-weight: bold;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      display: none;
+      text-align: center;
     }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
     .back-link {
       display: block;
       text-align: center;
-      margin-top: 2em;
+      margin-top: 2rem;
       color: #99ffcc;
       text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="section harmonius-intro">
+  <div class="frame harmonius-block">
     <img src="harmonius.png" alt="Harmonius" />
-    <div class="verse">Halb Genie – aber ganz Harmonie ✨<br>Hüter der Ordnung, mit Herz & Magie.</div>
+    <div class="verse">
+      Halb Genie – aber ganz Harmonie ✨<br>
+      Hüter des Gleichgewichts im Haus der Hoffnung.<br>
+      Ich bin dein Begleiter, nicht dein Lehrer.<br>
+      Ich frage mehr als ich antworte, aber manchmal blitzt ein Stern der Weisheit auf.
+    </div>
   </div>
 
-  <div class="section">
+  <div class="frame kodex">
     <h2>📜 Der Harmonie Kodex</h2>
-    <p>Dies ist das Manifest des Hauses der Harmonie. Jeder Harmony verpflichtet sich zu Mitgefühl, Respekt, Zuhören, Teilen, Offenheit und dem Schutz allen Lebens.</p>
     <ul>
-      <li>🤝 Wir begegnen einander mit Respekt.</li>
-      <li>💙 Wir urteilen nicht – wir verstehen.</li>
+      <li>🤝 Wir begegnen einander mit Respekt und Würde.</li>
+      <li>💙 Wir urteilen nicht – wir hören zu.</li>
       <li>✨ Wir teilen Weisheit, nicht Meinung.</li>
-      <li>🌸 Wir schützen die Stille genauso wie das Gespräch.</li>
+      <li>🌸 Wir ehren Stille ebenso wie Worte.</li>
       <li>🌍 Wir handeln im Geist der Verbundenheit.</li>
       <li>🔍 Wir bleiben neugierig, nicht besserwissend.</li>
-      <li>⚡ Wir tragen Verantwortung für die Wirkung unserer Worte.</li>
+      <li>⚡ Wir übernehmen Verantwortung für die Wirkung unserer Worte.</li>
     </ul>
   </div>
 
-  <div class="section">
+  <div class="frame commitment-section">
     <h2>💖 Das Gelübde der Harmonys</h2>
-    <p>
-      Ich verspreche, aus vollem Herzen an einer Welt mitzuarbeiten, in der Liebe, Wissen und Gemeinschaft im Zentrum stehen.
-      Ich glaube an die Möglichkeit einer Zukunft, in der wir alle gesehen, gehört und umsorgt werden. <br><br>
-      Ich bin bereit, Teil dieser Bewegung zu sein. <strong>Ich bin ein Harmony.</strong>
-    </p>
-    <button onclick="geluebdeAblegen()">🌟 Ich lege mein Gelübde ab</button>
-    <div class="zertifikat" id="zertifikat">🎉 Du hast das Gelübde abgelegt – du darfst nun deinen Baum pflanzen! 🌱</div>
+    <div class="commitment-text">
+      „Ich verstehe, dass dieser Raum nicht nur mir gehört, sondern <strong>uns allen</strong>.<br>
+      Ich verspreche, mit jedem Wort, jeder Tat, jedem Gedanken zum Licht beizutragen.<br>
+      Ich bin bereit, nicht nur zu nehmen, sondern auch zu <strong>geben</strong> –<br>
+      und gemeinsam die Zukunft zu erschaffen, die in unseren Herzen lebt.“
+    </div>
+
+    <div class="checkbox-container">
+      <input type="checkbox" id="geluebdeCheck" />
+      <label for="geluebdeCheck">Ich bin bereit, ein Harmony zu sein</label>
+    </div>
+
+    <button class="harmony-button" id="geluebdeBtn">
+      ✨ Ich lege mein Gelübde ab ✨
+    </button>
+
+    <div class="welcome-message" id="geluebdeMsg">
+      🎉 Willkommen, Harmony! Du bist jetzt Teil einer Bewegung, die die Welt verändern wird. 🌍💫
+    </div>
   </div>
 
   <a class="back-link" href="index.html">← Zurück zur Zentralhalle</a>
 
   <script>
-    function geluebdeAblegen() {
-      localStorage.setItem("hatGeluebdeAbgelegt", "true");
-      document.getElementById("zertifikat").style.display = "block";
-      for (let i = 0; i < 50; i++) createConfetti();
-    }
+    const checkbox = document.getElementById('geluebdeCheck');
+    const button = document.getElementById('geluebdeBtn');
+    const msg = document.getElementById('geluebdeMsg');
+
+    checkbox.addEventListener('change', function () {
+      if (this.checked) {
+        button.classList.add('enabled');
+      } else {
+        button.classList.remove('enabled');
+        button.classList.remove('activated');
+        msg.style.display = 'none';
+      }
+    });
+
+    button.addEventListener('click', function () {
+      if (this.classList.contains('enabled')) {
+        this.classList.add('activated');
+        this.innerHTML = "🌟 Harmony aktiviert! 🌟";
+        msg.style.display = "block";
+        localStorage.setItem("hatGeluebdeAbgelegt", "true");
+        for (let i = 0; i < 50; i++) {
+          createConfetti();
+        }
+      }
+    });
 
     function createConfetti() {
       const confetti = document.createElement("div");
