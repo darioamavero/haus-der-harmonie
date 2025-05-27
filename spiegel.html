@@ -1,124 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Empathie-Spiegel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      padding: 40px;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #4b0082, #1e1e2f);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 2rem;
+      color: #2d3748;
     }
-
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
     h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
       text-align: center;
+      margin-bottom: 20px;
+      color: #4a5568;
     }
-
-    form {
+    select {
       width: 100%;
-      max-width: 500px;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      padding: 12px;
+      font-size: 1em;
+      margin-bottom: 20px;
     }
-
-    textarea, select, button {
-      padding: 1rem;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    button {
-      background-color: #ffd700;
-      color: #000;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .response {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 1.5rem;
+    .antwort {
+      background: #f7fafc;
+      padding: 20px;
       border-radius: 12px;
-      margin-top: 2rem;
-      max-width: 600px;
-      width: 100%;
+      border: 1px solid #e2e8f0;
+      font-size: 1.1em;
+      min-height: 80px;
+      transition: all 0.3s ease;
     }
-
-    .back-button {
-      margin-bottom: 2rem;
-      background-color: rgba(255, 215, 0, 0.8);
-      color: black;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      align-self: flex-start;
+    .lexikon-link {
+      display: block;
+      text-align: right;
+      margin-top: 20px;
+      font-size: 0.95em;
     }
   </style>
 </head>
 <body>
-  <a class="back-button" href="liebe.html">← Zurück zum Flügel der Liebe</a>
-  <h1>Empathie-Spiegel</h1>
-  <form onsubmit="event.preventDefault(); showResponse();">
-    <label for="situation">Was bewegt dich gerade?</label>
-    <textarea id="situation" placeholder="Beschreibe deine Situation..."></textarea>
-
-    <label for="perspektive">Wähle eine Perspektive:</label>
-    <select id="perspektive">
-      <option value="fremder">Ein Fremder</option>
-      <option value="freund">Ein enger Freund</option>
-      <option value="ich">Dein zukünftiges Ich</option>
+  <div class="container">
+    <h1>🪞 Empathie-Spiegel</h1>
+    <label for="frage">Wähle eine Frage zur Reflexion:</label>
+    <select id="frage" onchange="zeigeAntwort()">
+      <option value="">-- Bitte auswählen --</option>
+      <option value="1">Was brauche ich wirklich in diesem Moment?</option>
+      <option value="2">Was könnte der andere gefühlt haben?</option>
+      <option value="3">Was würde Mitgefühl in mir selbst auslösen?</option>
+      <option value="4">Welche Worte hätten mir geholfen, als ich verletzt war?</option>
+      <option value="5">Wie fühlt sich wahre Verbundenheit an?</option>
     </select>
-
-    <button type="submit">Spiegle es mir</button>
-  </form>
-
-  <div class="response" id="response" style="display: none;">
-    <strong>Antwort:</strong>
-    <p id="response-text">
-      Ich sehe, dass du verletzt bist – aber aus meiner Sicht, als dein zukünftiges Ich, erkenne ich auch deine Kraft, damit umzugehen. Du hast mehr Verständnis verdient, aber auch du darfst lernen, loszulassen.
-    </p>
+    <div class="antwort" id="antwort">Wähle eine Frage und spiegle dich selbst...</div>
+    <a href="empathie-lexikon.html" class="lexikon-link">📖 Zum Empathie-Lexikon</a>
   </div>
 
   <script>
-    function showResponse() {
-      const response = document.getElementById('response');
-      const text = document.getElementById('response-text');
-      const perspektive = document.getElementById('perspektive').value;
+    const antworten = {
+      "1": "Vielleicht brauchst du gerade Ruhe, Verständnis oder einfach jemanden, der dich sieht, ohne zu bewerten.",
+      "2": "Vielleicht Unsicherheit, Angst, Scham oder das tiefe Bedürfnis, gesehen zu werden – wie du es auch manchmal brauchst.",
+      "3": "Wenn du innehältst und dein Herz öffnest, spürst du den Menschen hinter dem Verhalten.",
+      "4": "Worte wie 'Ich bin bei dir', 'Du bist nicht allein', oder einfach stilles Dasein können Wunder wirken.",
+      "5": "Wahre Verbundenheit fühlt sich weich, warm und grenzenlos an – als gäbe es keine Trennung mehr zwischen dir und dem anderen."
+    };
 
-      let antwort = "";
-
-      switch(perspektive) {
-        case "fremder":
-          antwort = "Als Fremder sehe ich nur einen Bruchteil deiner Geschichte. Doch selbst dieser Teil berührt – dein Schmerz ist echt, und ich wünsche dir Heilung.";
-          break;
-        case "freund":
-          antwort = "Als Freund verstehe ich deine Verletzung. Ich wünsche mir, du würdest mit dir selbst so liebevoll sprechen, wie du es mit mir tust.";
-          break;
-        case "ich":
-          antwort = "Ich sehe, dass du verletzt bist – aber aus meiner Sicht, als dein zukünftiges Ich, erkenne ich auch deine Kraft, damit umzugehen. Du hast mehr Verständnis verdient, aber auch du darfst lernen, loszulassen.";
-          break;
-      }
-
-      text.textContent = antwort;
-      response.style.display = "block";
+    function zeigeAntwort() {
+      const id = document.getElementById("frage").value;
+      const ausgabe = document.getElementById("antwort");
+      ausgabe.textContent = antworten[id] || "Wähle eine Frage und spiegle dich selbst...";
     }
   </script>
 </body>
