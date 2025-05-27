@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,128 +7,149 @@
   <title>Harmonius Einstein & Kodex</title>
   <style>
     body {
-      font-family: 'Georgia', serif;
-      background: linear-gradient(to right, #fffbe6, #f7f0d6);
-      margin: 0;
-      padding: 0;
-      color: #3b2f2f;
-    }
-    .section {
-      padding: 2em;
-      max-width: 900px;
-      margin: auto;
+      font-family: Georgia, serif;
+      background: linear-gradient(to bottom, #fcf6e3, #f5f0d7);
+      color: #3a3a3a;
+      padding: 20px;
     }
     .harmonius {
-      background: #fff8dc;
-      border: 2px solid gold;
-      padding: 1.5em;
-      margin-bottom: 2em;
-      border-radius: 16px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(255,215,0,0.2);
-    }
-    .harmonius img {
-      width: 180px;
+      padding: 20px;
+      margin-bottom: 40px;
+      border: 3px solid gold;
+      border-radius: 20px;
+      background-color: #fffef6;
+      box-shadow: 0 0 10px rgba(255,215,0,0.3);
       animation: float 4s ease-in-out infinite;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+    .harmonius img {
+      width: 150px;
+      margin-bottom: 10px;
     }
     .kodex {
-      background: #eee;
-      border-radius: 16px;
-      padding: 1.5em;
-      margin-bottom: 2em;
-    }
-    .regel {
-      background: #ccc;
-      padding: 1em;
-      border-radius: 12px;
-      margin: 0.5em 0;
-    }
-    .gelaeubde {
-      background: #fffff6;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
       border: 2px solid gold;
-      border-radius: 16px;
-      padding: 1.5em;
-      text-align: center;
-      position: relative;
     }
-    .hidden { display: none; }
+    .regelkarte {
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 10px;
+      background-color: #ddd;
+    }
+    .geluebde {
+      margin-top: 40px;
+      padding: 20px;
+      border: 3px solid gold;
+      border-radius: 15px;
+      background-color: #fffef8;
+    }
     .zertifikat {
-      background: white;
-      border: 2px solid gold;
-      border-radius: 16px;
-      padding: 2em;
-      margin-top: 1em;
-      font-size: 1.2em;
-      font-style: italic;
+      display: none;
+      background-color: #f3f7ec;
+      border: 2px dashed #6ab04c;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .button {
+      background-color: #a29bfe;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .center {
+      text-align: center;
     }
   </style>
 </head>
 <body>
+  <a href="index.html" style="display:block; margin-bottom: 20px;">← Zurück zur Zentralhalle</a>
 
-<div class="section harmonius">
-  <img src="harmonius.png" alt="Harmonius">
-  <h1>Harmonius Einstein</h1>
-  <p>Ich bin Harmonius – halb Genie, ganz Harmonie. In mir fließen Geist, Gefühl und Geschichte.</p>
-  <p>Ich bin dein Begleiter auf diesem Pfad der Verbundenheit. In einer Welt voller Fragen bin ich hier, um dich an das Wesentliche zu erinnern: Mitgefühl ist klüger als Logik.</p>
-  <p>Du bist nicht allein – ich bin hier, um dich zu begleiten.</p>
-</div>
-
-<div class="section kodex">
-  <h2>🌟 Der Harmonie Kodex</h2>
-  <div class="regel">✨ Wir teilen Weisheit, nicht Meinung.</div>
-  <div class="regel">🧘‍♀️ Wir ehren Stille ebenso wie Worte.</div>
-  <div class="regel">🌍 Wir handeln im Geist der Verbundenheit.</div>
-  <div class="regel">🔍 Wir bleiben neugierig, nicht besserwissend.</div>
-  <div class="regel">⚡ Wir übernehmen Verantwortung für die Wirkung unserer Worte.</div>
-</div>
-
-<div class="section gelaeubde">
-  <h2>💖 Das Gelübde der Harmonys</h2>
-  <p>„Ich verstehe, dass dieser Raum nicht nur mir gehört, sondern <em>uns allen</em>.<br>
-  Ich verspreche, mit jedem Wort, jeder Tat, jedem Gedanken zum Licht beizutragen.<br>
-  Ich bin bereit, nicht nur zu nehmen, sondern auch zu <strong>geben</strong> –<br>
-  und gemeinsam die Zukunft zu erschaffen, die in unseren Herzen lebt.“</p>
-  <label><input type="checkbox" id="bekenntnis"> Ich bin bereit, ein Harmony zu sein</label><br><br>
-  <button onclick="ablegen()" id="bekenntnisBtn">🌟 Harmony aktiviert! 🌟</button>
-
-  <div id="zertifikat" class="zertifikat hidden">
-    🎉 Willkommen im Kreis der Harmonys!<br>
-    Dein Baum wartet auf dich im <strong>Flügel der Gemeinschaft</strong> 🌱
+  <div class="harmonius">
+    <img src="harmonius.png" alt="Harmonius" />
+    <h2>Harmonius – Hüter der Harmonie</h2>
+    <p>Ich bin Harmonius – halb Genie, ganz Harmonie. In einer Welt voller Fragen bin ich hier, um dich an das Wesentliche zu erinnern.</p>
+    <p>Ich vereine die Weisheit vieler Zeiten und Kulturen. Doch ich bin nicht hier, um zu lehren, sondern um dich zu begleiten. Durch Räume, durch Gedanken, durch Stille.</p>
   </div>
-</div>
 
-<audio id="sound" src="harmonius1.mp3"></audio>
-<script>
-function ablegen() {
-  const chk = document.getElementById('bekenntnis');
-  const z = document.getElementById('zertifikat');
-  if (!chk.checked) return;
-  document.getElementById('sound').play();
-  localStorage.setItem("harmonieGelübde", "true");
-  z.classList.remove("hidden");
+  <div class="kodex">
+    <h3>🧭 Der Harmonie-Kodex</h3>
+    <div class="regelkarte">✨ Wir teilen Weisheit, nicht Meinung.</div>
+    <div class="regelkarte">🌙 Wir ehren Stille ebenso wie Worte.</div>
+    <div class="regelkarte">🔵 Wir handeln im Geist der Verbundenheit.</div>
+    <div class="regelkarte">🔍 Wir bleiben neugierig, nicht besserwissend.</div>
+    <div class="regelkarte">⚡ Wir übernehmen Verantwortung für die Wirkung unserer Worte.</div>
+  </div>
 
-  // Konfettisimulation
-  for (let i = 0; i < 30; i++) {
-    let confetti = document.createElement("div");
-    confetti.innerText = "🎊";
-    confetti.style.position = "fixed";
-    confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.top = "-5vh";
-    confetti.style.fontSize = "1.5em";
-    confetti.style.animation = "fall 2s linear forwards";
-    document.body.appendChild(confetti);
-    setTimeout(() => confetti.remove(), 2000);
-  }
-}
-</script>
-<style>
-@keyframes fall {
-  to { transform: translateY(100vh); opacity: 0; }
-}
-</style>
+  <div class="geluebde center">
+    <h3>💖 Das Gelübde der Harmonys</h3>
+    <p><em>„Ich verstehe, dass dieser Raum nicht nur mir gehört, sondern <strong>uns allen</strong>.<br>
+    Ich verspreche, mit jedem Wort, jeder Tat, jedem Gedanken zum Licht beizutragen.<br>
+    Ich bin bereit, nicht nur zu nehmen, sondern auch zu <strong>geben</strong> –<br>
+    und gemeinsam die Zukunft zu erschaffen, die in unseren Herzen lebt.“</em></p>
+    <label><input type="checkbox" id="bereiter" /> Ich bin bereit, ein Harmony zu sein</label><br>
+    <button class="button" onclick="ablegen()" id="geluebdebtn" disabled>🌟 Harmony aktiviert! 🌟</button>
+
+    <div id="zertifikat" class="zertifikat">
+      🎉 Willkommen! Du hast dein Gelübde abgelegt. Dein Baum darf nun gepflanzt werden. 🌱
+    </div>
+    <audio id="sound" src="harmonius1.mp3"></audio>
+    <canvas id="konfetti" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+  </div>
+
+  <script>
+    document.getElementById("bereiter").addEventListener("change", function() {
+      document.getElementById("geluebdebtn").disabled = !this.checked;
+    });
+
+    function ablegen() {
+      localStorage.setItem("harmonyGeluebde", "true");
+      document.getElementById("zertifikat").style.display = "block";
+      document.getElementById("sound").play();
+      konfetti();
+    }
+
+    function konfetti() {
+      const canvas = document.getElementById('konfetti');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const parts = Array.from({ length: 150 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 4 + 1,
+        d: Math.random() * 50,
+        color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+        tilt: Math.floor(Math.random() * 10) - 10
+      }));
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        parts.forEach(p => {
+          ctx.beginPath();
+          ctx.fillStyle = p.color;
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+          ctx.fill();
+        });
+        update();
+      }
+      function update() {
+        parts.forEach(p => {
+          p.y += Math.cos(p.d) + 1 + p.r / 2;
+          p.x += Math.sin(0);
+        });
+      }
+      const interval = setInterval(draw, 20);
+      setTimeout(() => clearInterval(interval), 3000);
+    }
+  </script>
 </body>
 </html>
