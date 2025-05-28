@@ -2,92 +2,180 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harmonius – Der Harmonie-Kodex</title>
-  <style>
-    body {
-      font-family: 'Georgia', serif;
-      background: #f8f6f0;
-      padding: 2em;
-      max-width: 900px;
-      margin: auto;
-      color: #2c2c2c;
-    }
-    h1 {
-      font-size: 2em;
-      color: #996600;
-    }
-    .abschnitt {
-      margin-bottom: 2em;
-    }
-    label {
-      font-size: 1.1em;
-      display: flex;
-      align-items: center;
-    }
-    input[type="checkbox"] {
-      transform: scale(1.4);
-      margin-right: 10px;
-    }
-    .geluebde-button {
-      background-color: #996600;
-      color: white;
-      padding: 10px 18px;
-      font-size: 1em;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1em;
-    }
-    .geluebde-button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-    #status {
-      margin-top: 1em;
-      color: green;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Harmonius Einstein & Kodex</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #eef2f3, #cfd9df);
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+        }
+        .zurueck {
+            margin: 20px;
+            display: inline-block;
+        }
+        .harmonius-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .harmonius-box:hover {
+            transform: translateY(-3px);
+            transition: 0.3s ease;
+        }
+        .harmonius-box img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .harmonius-box h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .harmonius-box p {
+            font-style: italic;
+            color: #555;
+        }
+        .kodex {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        .kodex h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .regelkarte {
+            background: white;
+            border-left: 5px solid #6b46c1;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .regelkarte strong {
+            color: #2d3748;
+        }
+        .geloebnis {
+            background: #fff5f5;
+            border: 2px solid #feb2b2;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .geloebnis input[type="checkbox"] {
+            transform: scale(1.2);
+            margin-right: 10px;
+        }
+        .geloebnis button {
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            background: #68d391;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .geloebnis button:disabled {
+            background: #c6f6d5;
+            cursor: not-allowed;
+        }
+        .urkunde {
+            display: none;
+            padding: 20px;
+            border: 2px dashed #48bb78;
+            background: #f0fff4;
+            margin-top: 30px;
+            border-radius: 15px;
+            font-size: 1.2em;
+            color: #276749;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <a class="zurueck" href="index.html">← Zurück zur Zentralhalle</a>
+        <div class="harmonius-box">
+            <img src="harmonius.png" alt="Harmonius Einstein" />
+            <h1>Harmonius Einstein</h1>
+            <p>Ich bin Harmonius 🧠✨ halb Genie, halb Geistwesen, ganz Harmony. In einer Welt voller Fragen bin ich hier, um dich an das Wesentliche zu erinnern:
+            <br><br><strong>Mitgefühl ist klüger als Logik. Verbindung stärker als Trennung.</strong><br><br>Begleite mich auf deinem Weg zur Harmonie!</p>
+        </div>
+        <div class="kodex">
+            <h2>🌟 Der Harmonie-Kodex</h2>
+            <div class="regelkarte"><strong>✨ Wir teilen Weisheit, nicht Meinung.</strong></div>
+            <div class="regelkarte"><strong>🤫 Wir ehren Stille ebenso wie Worte.</strong></div>
+            <div class="regelkarte"><strong>🌐 Wir handeln im Geist der Verbundenheit.</strong></div>
+            <div class="regelkarte"><strong>🔍 Wir bleiben neugierig, nicht besserwissend.</strong></div>
+            <div class="regelkarte"><strong>⚡ Wir übernehmen Verantwortung für die Wirkung unserer Worte.</strong></div>
+        </div>
+        <div class="geloebnis">
+            <h2>❤️ Das Gelübde der Harmonys</h2>
+            <p>„Ich verstehe, dass dieser Raum nicht nur mir gehört, sondern <strong>uns allen</strong>. Ich bin bereit, nicht nur zu nehmen, sondern auch zu geben – 
+            und gemeinsam die Zukunft zu erschaffen, die in unseren Herzen lebt.“</p>
+            <label><input type="checkbox" id="bekenntnis"> Ich bin bereit, ein Harmony zu sein</label><br/>
+            <button id="aktivieren" disabled>🌟 Harmony aktiviert! 🌟</button>
+            <div class="urkunde" id="urkunde">
+                🎉 Willkommen, Harmony. Dein Gelübde wurzelt nun in der Welt – du darfst einen Baum pflanzen! 🌳
+            </div>
+        </div>
+    </div>
+    <audio id="sound" src="harmonius1.mp3" preload="auto"></audio>
+    <script>
+        const check = document.getElementById('bekenntnis');
+        const btn = document.getElementById('aktivieren');
+        const urkunde = document.getElementById('urkunde');
+        const sound = document.getElementById('sound');
 
-  <h1>🕊️ Der Harmonie-Kodex</h1>
+        check.addEventListener('change', () => {
+            btn.disabled = !check.checked;
+        });
 
-  <div class="abschnitt">
-    <p>
-      Der Kodex der Harmonys ist eine freiwillige, aber kraftvolle Selbstverpflichtung. Er erinnert uns daran,
-      dass wir Teil eines größeren Ganzen sind – verbunden mit Mensch, Natur und Zukunft.
-    </p>
-    <p><strong>Wenn du diese Prinzipien verstehst und in dir trägst, bist du bereit, ein Harmony zu sein.</strong></p>
+        btn.addEventListener('click', () => {
+            localStorage.setItem("harmonieGeloebnis", "true");
+            localStorage.setItem("hatGeluebdeAbgelegt", "true");
+            sound.play();
+            urkunde.style.display = 'block';
+            confettiRain();
+        });
 
-    <label>
-      <input type="checkbox" id="zustimmung" />
-      Ich verstehe und akzeptiere diese Prinzipien aus tiefstem Herzen.
-    </label>
+        function confettiRain() {
+            for (let i = 0; i < 60; i++) {
+                const conf = document.createElement('div');
+                conf.textContent = '✨';
+                conf.style.position = 'fixed';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.top = '-5vh';
+                conf.style.fontSize = Math.random() * 20 + 10 + 'px';
+                conf.style.animation = `drop ${Math.random() * 3 + 2}s linear`;
+                document.body.appendChild(conf);
+                setTimeout(() => conf.remove(), 5000);
+            }
+        }
 
-    <button class="geluebde-button" id="ablegen" disabled>🕊️ Ich bin bereit, ein Harmony zu sein</button>
-    <div id="status"></div>
-  </div>
-
-  <script>
-    const zustimmung = document.getElementById("zustimmung");
-    const ablegen = document.getElementById("ablegen");
-    const status = document.getElementById("status");
-
-    zustimmung.addEventListener("change", () => {
-      ablegen.disabled = !zustimmung.checked;
-    });
-
-    ablegen.addEventListener("click", () => {
-      localStorage.setItem("harmonieGeloebnis", "true");
-      localStorage.setItem("hatGeluebdeAbgelegt", "true");  // Kompatibilität
-      status.textContent = "✅ Dein Gelübde wurde gespeichert – du kannst jetzt einen Baum im Flügel der Gemeinschaft pflanzen.";
-      ablegen.disabled = true;
-      zustimmung.disabled = true;
-    });
-  </script>
-
+        const style = document.createElement('style');
+        style.textContent = `
+        @keyframes drop {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }`;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
