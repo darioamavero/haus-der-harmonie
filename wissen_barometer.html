@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harmoniebarometer</title>
-  <script src="barometer.js" defer></script>
+  <title>Harmoniebarometer – Pangea</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -15,14 +15,7 @@
       background-position: center;
       background-attachment: fixed;
       color: white;
-    }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
+      overflow-x: hidden;
     }
 
     .back-button {
@@ -37,121 +30,71 @@
       width: fit-content;
     }
 
-    .barometer-button {
-      display: block;
-      margin: 2rem auto;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(6px);
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1.5rem;
       text-align: center;
-    }
-
-    .barometer-button:hover {
-      background-color: rgba(255, 255, 255, 0.25);
-    }
-
-    #harmoniebarometer {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    #barometer-content {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      max-height: 80%;
-      overflow-y: auto;
-    }
-
-    #close-barometer {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background-color: rgba(255, 215, 0, 0.8);
-      color: black;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+      font-size: 2rem;
       font-weight: bold;
-      cursor: pointer;
     }
 
-    .world-indicator {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
+    model-viewer {
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      margin: 2rem auto 1rem auto;
+      display: block;
+      background: transparent;
     }
 
-    .world-indicator img {
-      width: 80px;
-      height: 80px;
-      transition: transform 0.3s ease;
-    }
-
-    .world-indicator img:hover {
-      transform: scale(1.1);
-    }
-
-    .tooltip {
-      position: relative;
-      display: inline-block;
-    }
-
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 240px;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: #fff;
+    .status-text {
       text-align: center;
-      border-radius: 6px;
-      padding: 0.5rem;
-      position: absolute;
-      z-index: 1;
-      bottom: 120%;
-      left: 50%;
-      margin-left: -120px;
-      opacity: 0;
-      transition: opacity 0.3s;
+      font-size: 1.2rem;
+      color: #FFD700;
+      margin-bottom: 2rem;
     }
 
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
+    .info-box {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1.5rem;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto 3rem auto;
+    }
+
+    .info-box h3 {
+      color: #FFD700;
+    }
+
+    .info-box p {
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      model-viewer {
+        height: 300px;
+      }
+
+      .status-text {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <a class="back-button" href="wissen.html">← Zurück zum Flügel des Wissens</a>
-  <header>📊 Harmoniebarometer</header>
+  <header>🌍 Harmoniebarometer – Stimme von Pangea</header>
 
-  <button class="barometer-button">Harmoniebarometer anzeigen</button>
+  <model-viewer src="Create_a_stylized_fu_0528204503_texture.glb" alt="Hologramm Erde" auto-rotate camera-controls disable-zoom></model-viewer>
 
-  <div id="harmoniebarometer">
-    <button id="close-barometer">Schließen</button>
-    <div id="barometer-content"></div>
-  </div>
+  <div class="status-text">Aktueller Zustand: <strong>🟠 Unruhe</strong> – Gitternetz leuchtet schwach</div>
 
-  <div class="world-indicator">
-    <div class="tooltip">
-      <img src="world_icon.png" alt="Weltkugel mit Licht" />
-      <span class="tooltiptext">Harmoniezustand der Welt ansehen – Flügel des Wissen</span>
-    </div>
+  <div class="info-box">
+    <h3>🧭 Weltzustand</h3>
+    <p><strong>Hunger:</strong> 🔶 Mäßig – Etwa 720 Millionen Menschen leiden unter chronischem Hunger.</p>
+    <p><strong>Armut:</strong> 🔴 Hoch – Über 1,2 Milliarden Menschen leben unterhalb der Armutsgrenze.</p>
+    <p><strong>Krieg:</strong> 🔴 Sehr hoch – Derzeit über 30 bewaffnete Konflikte weltweit.</p>
+    <p><strong>Umwelt:</strong> 🟠 Kritisch – Die CO₂-Werte steigen trotz Klimabemühungen.</p>
   </div>
 </body>
 </html>
