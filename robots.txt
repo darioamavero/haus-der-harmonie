@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://darioamavero.github.io/haus-der-harmonie/sitemap.xml
+Sitemap: https://darioamavero.github.io/haus-der-harmonie/sitemap1.xml
