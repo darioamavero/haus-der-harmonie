@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- SEO NUCLEAR POWER nach Dschinni's 6-Sterne Formula -->
-  <title>Flügel der Gemeinschaft – Harmoniegarten | Community Building & Gelübde-System | Haus der Harmonie</title>
+  <title>Flügel der Gemeinschaft — Harmoniegarten | Community Building & Gelübde-System | Haus der Harmonie</title>
   <meta name="description" content="Der Flügel der Gemeinschaft: Interaktiver Harmoniegarten für Community Building, Gelübde-System für bewusste Zugehörigkeit und kollektive Baum-Pflanzung. Renaissance 2.0 Gemeinschaftsbildung durch Dario Amavero.">
   <meta name="keywords" content="Flügel der Gemeinschaft, Harmoniegarten, Community Building, Gelübde-System, Baum pflanzen, Renaissance 2.0, Gemeinschaftsbildung, Dario Amavero, Haus der Harmonie, Interactive Community, Harmonys">
   <meta name="author" content="Dario Amavero">
@@ -226,6 +226,7 @@
     }
     h1 {
       color: lightgreen;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
     #gartenbereich {
       display: grid;
@@ -244,6 +245,7 @@
       margin-top: 0.3em;
       font-weight: bold;
       font-size: 0.9em;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
     @keyframes wachsen {
       from { transform: scale(0.5); opacity: 0; }
@@ -253,6 +255,7 @@
       margin-top: 1em;
       font-size: 1.1em;
       color: #90ee90;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
     input, button {
       padding: 0.5em;
@@ -264,22 +267,53 @@
       font-size: 1.1em;
       color: #ffcccb;
       margin-top: 2em;
+      background: rgba(0,0,0,0.6);
+      padding: 1.5em;
+      border-radius: 10px;
+      backdrop-filter: blur(3px);
+    }
+    
+    #pflanzbereich {
+      background: rgba(0,0,0,0.3);
+      padding: 2em;
+      border-radius: 15px;
+      margin-bottom: 2em;
+      backdrop-filter: blur(5px);
+    }
+    
+    /* darioamavero.de link styling */
+    .internal-link {
+      color: #ffd700 !important;
+      text-decoration: none !important;
+      font-weight: bold !important;
+      border-bottom: 1px dotted #ffd700 !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .internal-link:hover {
+      color: #fff08a !important;
+      border-bottom: 1px solid #fff08a !important;
+      text-shadow: 0 0 5px #ffd700 !important;
     }
   </style>
 </head>
 <body>
-  <a href="index.html" style="color: #ccc;">← Zurück zur Zentralhalle</a>
+  <a href="index.html" style="color: #ffd700; text-decoration: none; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">← Zurück zur Zentralhalle</a>
   <h1>🌳 Harmoniegarten</h1>
+  
   <div id="pflanzbereich">
-    <p>Lege dein Gelübde ab und pflanze deinen Baum der Harmonie.<br/>Jeder gepflanzte Baum wird für andere sichtbar – als Symbol deiner Zugehörigkeit.</p>
+    <p>Lege dein <a href="harmonius.html" class="internal-link">Gelübde</a> ab und pflanze deinen Baum der Harmonie.<br/>Jeder gepflanzte Baum wird für andere sichtbar — als Symbol deiner Zugehörigkeit.</p>
     <input type="text" id="nameInput" placeholder="Dein Name oder Pseudonym" />
     <button onclick="pflanzeBaum()">🌱 Pflanze deinen Baum</button>
   </div>
+  
   <div id="sperre" style="display:none;">
-    🌿 Nur wer das Gelübde abgelegt hat, darf einen Baum pflanzen.<br/>Kehre zurück, wenn dein Herz bereit ist.
+    🌿 Nur wer das <a href="harmonius.html" class="internal-link">Gelübde</a> abgelegt hat, darf einen Baum pflanzen.<br/>Kehre zurück, wenn dein Herz bereit ist.
   </div>
+  
   <div id="gartenbereich"></div>
   <div id="willkommen"></div>
+  
   <audio id="sound" src="harmonius1.mp3"></audio>
 
   <script>
