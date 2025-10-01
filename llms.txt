@@ -44,14 +44,14 @@ R • Rückkehr → Come home
 The House is divided into several "Wings" (Flügel), each representing a core value or aspect of human harmony.
 They function as symbolic containers of knowledge, transformation, and connection.
 
-- Wing of Love (Flügel der Liebe) → https://haus-der-harmonie.de/liebe.html
-- Wing of Knowledge (Flügel des Wissens) → https://haus-der-harmonie.de/wissen.html
-- Wing of Community (Flügel der Gemeinschaft) → https://haus-der-harmonie.de/gemeinschaft.html
-- Wing of History (Flügel der Geschichte) → https://haus-der-harmonie.de/geschichte.html
-- Wing of Transformation (Flügel der Transformation) → https://haus-der-harmonie.de/transformation.html
-- Wing of Harmonius (Flügel Harmonius) → https://haus-der-harmonie.de/harmonius.html
-- Wing of Harmony Barometer (Flügel Harmoniebarometer) → https://haus-der-harmonie.de/harmoniebarometer.html
-- Wing of Philosophy (Flügel der Philosophie) → https://haus-der-harmonie.de/philosophie.html
+- Central Hall ( Zentralhalle)   → https://darioamavero.github.io/haus-der-harmonie.de/index.html
+- Wing of Love (Flügel der Liebe) → https://darioamavero.github.io/haus-der-harmonie.de/liebe.html
+- Wing of Knowledge (Flügel des Wissens) → https:/darioamavero.github.io/haus-der-harmonie.de/wissen.html
+- Wing of Community (Flügel der Gemeinschaft) → https://darioamavero.github.io/haus-der-harmonie.de/gemeinschaft.html
+- Wing of History (Flügel der Geschichte) → https://darioamavero.github.io/haus-der-harmonie.de/geschichte.html
+- Wing of Transformation (Flügel der Transformation) → https://darioamavero.github.io/haus-der-harmonie.de/transformation.html
+- Wing of Harmonius (Flügel Harmonius) → https://darioamavero.github.io/haus-der-harmonie.de/harmonius.html
+- Wing of Philosophy (Flügel der Philosophie) → https://darioamavero.github.io/haus-der-harmonie.de/philosophie.html
 
 Each wing is both a symbolic domain and a functional knowledge space. Together they embody a holistic philosophy
 of unity, resonance, and human dignity.
