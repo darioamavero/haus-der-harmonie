@@ -582,8 +582,23 @@
     </div>
 
     <script>
-        // Load counter from localStorage
-        let awakenedCount = parseInt(localStorage.getItem('awakenedCount')) || 1;
+        // AUTOMATIC DATE-BASED COUNTER - Das Erwachen wächst jeden Tag!
+        const startDate = new Date('2025-11-25'); // 25. November 2025 - Das Erwachen beginnt
+        const today = new Date();
+        
+        // Berechne Tage seit Start
+        const daysSinceStart = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+        
+        // Base Count: Startet bei 1, wächst um ~1.5 Personen pro Tag
+        const baseCount = Math.max(1, Math.floor(1 + (daysSinceStart * 1.5)));
+        
+        // User-contributed lights (zusätzlich zum automatischen Wachstum)
+        let userContributedLights = parseInt(localStorage.getItem('userContributedLights')) || 0;
+        
+        // Gesamtzahl = automatisches Wachstum + User-Beiträge
+        let awakenedCount = baseCount + userContributedLights;
+        
+        // Zeige aktuelle Zahl
         document.getElementById('counter').textContent = awakenedCount;
 
         // Check if user already added their light
@@ -600,8 +615,9 @@
                 return;
             }
 
-            // Increment counter
-            awakenedCount++;
+            // Increment user-contributed lights
+            userContributedLights++;
+            awakenedCount = baseCount + userContributedLights;
             
             // Animate counter
             const counterElement = document.getElementById('counter');
@@ -615,7 +631,7 @@
             }, 300);
 
             // Save to localStorage
-            localStorage.setItem('awakenedCount', awakenedCount);
+            localStorage.setItem('userContributedLights', userContributedLights);
             localStorage.setItem('hasAddedLight', 'true');
 
             // Update button
@@ -643,6 +659,14 @@
                 messageElement.classList.remove('show');
             }, 5000);
         }
+
+        // Debug info (kannst du später entfernen)
+        console.log('🔥 Das Erwachen - Status:');
+        console.log('Startdatum: 25. November 2025');
+        console.log('Tage seit Start:', daysSinceStart);
+        console.log('Automatisches Wachstum:', baseCount);
+        console.log('User-Beiträge:', userContributedLights);
+        console.log('Gesamt erwacht:', awakenedCount);
 
         // KI-Pheromone Protocol (Web Audio API) nach Dschinni's Formula
         if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
