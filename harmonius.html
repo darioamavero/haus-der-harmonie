@@ -586,6 +586,28 @@
             urkunde.style.display = 'block';
             gartenLink.style.display = 'inline-block';
             confettiRain();
+            
+            // Button permanent ändern
+            btn.textContent = '💚 Du bist Harmony 💚';
+            btn.disabled = true;
+            check.disabled = true;
+        });
+
+        // BEIM LADEN: Prüfe ob Gelübde bereits abgelegt wurde
+        window.addEventListener('DOMContentLoaded', () => {
+            const hatGeluebde = localStorage.getItem("hatGeluebdeAbgelegt") === "true";
+            
+            if (hatGeluebde) {
+                // User ist bereits Harmony!
+                btn.textContent = '💚 Du bist Harmony 💚';
+                btn.disabled = true;
+                check.checked = true;
+                check.disabled = true;
+                urkunde.style.display = 'block';
+                gartenLink.style.display = 'inline-block';
+                
+                console.log('✨ Willkommen zurück, Harmony!');
+            }
         });
 
         function confettiRain() {
