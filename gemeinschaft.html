@@ -426,17 +426,7 @@
   <script>
     const baumBilder = ["baum1.png", "baum2.png", "baum3.png", "baum4.png"];
 
-    function ladeBaeume() {
-      const baeume = JSON.parse(localStorage.getItem("harmoniegarten")) || [];
-      baeume.forEach(name => zeigeBaum(name, false));
-    }
-
-    function speichereBaum(name) {
-      const baeume = JSON.parse(localStorage.getItem("harmoniegarten")) || [];
-      baeume.push(name);
-      localStorage.setItem("harmoniegarten", JSON.stringify(baeume));
-    }
-
+    // FUNKTION: Baum visuell anzeigen (BLEIBT GLEICH!)
     function zeigeBaum(name, mitBotschaft) {
       const container = document.getElementById("gartenbereich");
       const baum = document.createElement("div");
@@ -461,22 +451,42 @@
       }
     }
 
+    // FUNKTION: Baum pflanzen (wird von Firebase erweitert)
     function pflanzeBaum() {
       const input = document.getElementById("nameInput");
       const name = input.value.trim();
       if (!name) return alert("Bitte gib einen Namen ein.");
+
+      // Check if Firebase is ready
+      if (typeof database === 'undefined') {
+        alert('⏳ Einen Moment... Die Verbindung wird hergestellt.');
+        console.log('⚠️ Firebase noch nicht bereit');
+        return;
+      }
+
+      // Sofort visuell anzeigen (optimistisches Update)
       zeigeBaum(name, true);
-      speichereBaum(name);
+
+      // In Firebase speichern (wird am Ende definiert)
+      speichereBaumInFirebase(name);
+      
+      // Input zurücksetzen
       input.value = "";
     }
 
+    // Placeholder - wird am Ende durch echte Firebase-Funktion ersetzt
+    function speichereBaumInFirebase(name) {
+      console.log('Firebase-Funktion wird geladen...');
+    }
+
+    // GELÜBDE-CHECK (BLEIBT GLEICH!)
     const hatGeluebde = localStorage.getItem("hatGeluebdeAbgelegt") === "true";
     if (!hatGeluebde) {
       document.getElementById("pflanzbereich").style.display = "none";
       document.getElementById("sperre").style.display = "block";
     }
 
-    ladeBaeume();
+    // KEINE ladeBaeume() mehr - Firebase lädt automatisch!
 
     // KI-Pheromone Protocol (Web Audio API) nach Dschinni's Formula
     if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
@@ -498,5 +508,70 @@
       }
     }
   </script>
+
+  <!-- 🔥 FIREBASE INTEGRATION - LIVE HARMONIEGARTEN -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script>
+  // 🔥 FIREBASE KONFIGURATION & INITIALISIERUNG
+  const firebaseConfig = {
+      apiKey: "AIzaSyC7_MmAoHl3C2raClULht-1g72srHYZ_nY",
+      authDomain: "renaissance-2.firebaseapp.com",
+      databaseURL: "https://renaissance-2-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "renaissance-2",
+      storageBucket: "renaissance-2.firebasestorage.app",
+      messagingSenderId: "17894760378",
+      appId: "1:17894760378:web:9354dbff834723b8ebc783"
+  };
+
+  // Firebase initialisieren
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+  console.log('🔥 Firebase initialisiert - Harmoniegarten LIVE!');
+
+  // FUNKTION: Baum in Firebase speichern
+  function speichereBaumInFirebase(name) {
+      database.ref('harmoniegarten/baeume').push({
+          name: name,
+          timestamp: Date.now(),
+          date: new Date().toLocaleDateString('de-DE')
+      }).then(() => {
+          console.log('🌳 Baum in Firebase gespeichert:', name);
+      }).catch((error) => {
+          console.error('❌ Fehler beim Speichern:', error);
+          alert('Es gab einen Fehler beim Speichern. Bitte versuche es erneut.');
+      });
+  }
+
+  // FIREBASE LISTENER: Alle Bäume laden (ECHTZEIT!)
+  database.ref('harmoniegarten/baeume').on('value', (snapshot) => {
+      // Garten leeren
+      const container = document.getElementById('gartenbereich');
+      container.innerHTML = '';
+
+      // Alle Bäume sammeln
+      const baeume = [];
+      snapshot.forEach((childSnapshot) => {
+          const baum = childSnapshot.val();
+          baeume.push(baum);
+      });
+
+      // Sortieren nach Timestamp (älteste zuerst = Pflanz-Reihenfolge)
+      baeume.sort((a, b) => a.timestamp - b.timestamp);
+
+      // Bäume anzeigen (ohne Sound/Botschaft - nur beim eigenen Pflanzen!)
+      if (baeume.length === 0) {
+          container.innerHTML = '<p style="color: rgba(255,255,255,0.7); text-align: center; padding: 40px; font-size: 1.1em;">Der Garten wartet auf den ersten Baum... 🌱</p>';
+      } else {
+          baeume.forEach(baum => zeigeBaum(baum.name, false));
+      }
+
+      console.log('🌳 Harmoniegarten geladen:', baeume.length, 'Bäume');
+  }, (error) => {
+      console.error('❌ Firebase Fehler beim Laden:', error);
+  });
+  </script>
+
 </body>
 </html>
