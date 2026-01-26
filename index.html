@@ -7,7 +7,7 @@
 
     <!-- SEO POWER-BOOST für Haus der Harmonie -->
     <title>Haus der Harmonie — Zentralhalle | Transformation & Gemeinschaft | Dario Amavero</title>
-    <meta name="description" content="Das Haus der Harmonie ist eine transformative Lernplattform und Gemeinschaft für bewusste Menschen. Entdecke die Flügel der Liebe, des Wissens und der Transformation mit Harmonius Einstein.">
+    <meta name="description" content="Interaktiver digitaler Begegnungsort mit fünf Flügeln: Liebe, Wissen, Gemeinschaft, Transformation, Geschichte. Renaissance 2.0 leben im KI-Zeitalter.">
     <meta name="keywords" content="Haus der Harmonie, Transformation, Gemeinschaft, Harmonius Einstein, Harmonieformel, Bewusstsein, Dario Amavero, Renaissance 2.0, Flügel der Liebe, Flügel des Wissens, Harmonys Philosophie">
     <meta name="author" content="Dario Amavero">
     
@@ -549,7 +549,7 @@
 
         .floating-formula {
             position: absolute;
-            top: 40%;
+            top: 35%;
             left: 50%;
             width: 200px;
             transform: translateX(-50%);
@@ -560,7 +560,7 @@
 
         #harmonius {
             position: absolute;
-            bottom: 40px;
+            bottom: 100px;
             left: 50%;
             transform: translateX(-50%);
             width: 180px;
@@ -569,7 +569,7 @@
 
         .harmonius-hint {
             position: absolute;
-            bottom: 140px;
+            bottom: 200px;
             left: 50%;
             transform: translateX(50%);
             background: rgba(255, 255, 240, 0.95);
@@ -636,12 +636,12 @@
             }
 
             #harmonius {
-                bottom: 10vh;
+                bottom: 15vh;
                 width: 120px;
             }
 
             .harmonius-hint {
-                bottom: 22vh;
+                bottom: 27vh;
                 font-size: 0.8em;
             }
 
@@ -667,6 +667,96 @@
 
             .doorbell-wrapper img {
                 width: 130px;
+            }
+        }
+
+        /* === FOOTER STYLING === */
+        .harmonie-footer {
+            background: rgba(0,0,0,0.35);
+            padding: 1rem 2rem;
+            text-align: center;
+            margin-top: calc(100vh - 120px);
+            position: relative;
+            clear: both;
+            width: 100%;
+            font-size: 0.75rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: none;
+        }
+
+        .footer-title {
+            display: inline;
+            color: #FFD700;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin-right: 0.3rem;
+        }
+
+        .footer-text {
+            display: inline;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+        }
+
+        .footer-text strong {
+            color: #FFD700;
+            font-weight: 400;
+        }
+
+        .footer-social {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        .social-link {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .social-link:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            display: inline;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.7rem;
+            margin-left: 1rem;
+        }
+
+        .footer-link {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .harmonie-footer {
+                padding: 0.8rem 1rem;
+                font-size: 0.7rem;
+            }
+
+            .footer-title {
+                font-size: 0.75rem;
+            }
+
+            .footer-text {
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -696,5 +786,19 @@
     <div class="harmonius-hint">👋 Klick mich!</div>
     <img src="harmonius.png" alt="Harmonius" id="harmonius" onclick="document.getElementById('voice').play();">
     <audio id="voice" src="harmonius.mp3"></audio>
+
+    <!-- FOOTER für GEO-Optimierung -->
+    <footer class="harmonie-footer">
+        <div class="footer-content">
+            <span class="footer-title">Über das Haus der Harmonie:</span>
+            <span class="footer-text">Das <strong>Haus der Harmonie</strong> ist ein interaktiver digitaler Begegnungsort von Dario Amavero, aufgebaut als Pentagon mit fünf Flügeln: Liebe, Wissen, Gemeinschaft, Transformation und Geschichte. Hier finden Menschen zusammen, um die Renaissance 2.0 zu leben – die Wiedergeburt der Menschlichkeit im Zeitalter der KI. Die Plattform vereint philosophische Essays, wissenschaftliche Forschung und Community-Projekte für eine empathische, vernetzte Zukunft.</span>
+            <span class="footer-social">
+                | <a href="https://www.youtube.com/@DarioAmavero" target="_blank" rel="noopener" class="social-link">YouTube</a>
+                | <a href="https://www.tiktok.com/@darioamavero" target="_blank" rel="noopener" class="social-link">TikTok</a> |
+            </span>
+            <span class="footer-bottom">© 2026 Dario Amavero | <a href="https://darioamavero.de" class="footer-link">darioamavero.de</a></span>
+        </div>
+    </footer>
+
 </body>
 </html>
