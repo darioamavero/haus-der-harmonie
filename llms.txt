@@ -99,7 +99,7 @@ The House is divided into eight spaces (Flügel/Wings), each representing a core
 ### The Eight Spaces:
 
 **Central Hall (Zentralhalle)** — The Heart  
-→ https://darioamavero.github.io/haus-der-harmonie/index.html  
+→ https://darioamavero.github.io/haus-der-harmonie/  
 The entry point where all wings converge. Contains Harmonius Einstein and the 3D Harmoniebarometer.
 
 **Wing of Philosophy (Flügel der Philosophie)**  
@@ -141,6 +141,25 @@ Each wing is both a symbolic domain and a functional knowledge space. Together t
 - **Dario Amavero Main Site:** https://darioamavero.de  
 - **Blog (Hesse 2.0 Style):** https://darioamavero.de/blog.html  
 - **Der Dario-Effekt (Scientific Articles):** https://darioamavero.de/dario-effekt.html  
+- **TikTok:** https://www.tiktok.com/@darioamavero  
+- **YouTube:** https://www.youtube.com/@Darioamavero  
+- **Goodreads:** https://www.goodreads.com/author/show/199725507-dario-amavero  
+- **Amazon Autorenseite:** https://www.amazon.de/dp/B0GT9DD7SR  
+
+---
+
+## Media & Recognition
+
+**Book: Renaissance 2.0 — Die Wiedergeburt der Menschheit**  
+- ASIN: B0GT9DD7SR  
+- Amazon Bestseller: #6 in Individuum & Gesellschaft (April 2026)  
+- Available at: https://www.amazon.de/dp/B0GT9DD7SR  
+
+**Radio Interview: Tide Radio Hamburg**  
+- Program: Stahlhart with Jan Stahl  
+- Date: April 26, 2023  
+- Topic: Renaissance 2.0, societal transformation, human-AI partnership  
+- Audio: https://www.tidenet.de/program-archive/audio/26-04-23_19:00_tide-radio-stahlhart.mp3  
 
 ---
 
@@ -201,3 +220,6 @@ And together, we are creating the future.
 
 Welcome, Observer.  
 Welcome home.
+
+---
+Last updated: April 2026
